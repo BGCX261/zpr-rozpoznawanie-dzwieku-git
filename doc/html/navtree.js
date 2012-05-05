@@ -1,6 +1,18 @@
 var NAVTREE =
 [
   [ "Rozpoznawanie dźwieków gitarowych na podstawie ich widma", "index.html", [
+    [ "Przestrzenie nazw", null, [
+      [ "Lista przestrzeni nazw", "namespaces.html", "namespaces" ]
+    ] ],
+    [ "Klasy", null, [
+      [ "Lista klas", "annotated.html", "annotated" ],
+      [ "Indeks klas", "classes.html", null ],
+      [ "Hierarchia klas", "hierarchy.html", "hierarchy" ],
+      [ "Składowe klas", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Zmienne", "functions_vars.html", null ]
+      ] ]
+    ] ],
     [ "Pliki", null, [
       [ "Lista plików", "files.html", "files" ],
       [ "Składowe plików", "globals.html", [

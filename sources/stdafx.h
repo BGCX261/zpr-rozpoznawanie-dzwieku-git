@@ -7,4 +7,10 @@
 /// Lukasz Rychter
 /// Maciej Sikora
 
+#ifdef _WIN32
+
 #include <iostream>
+#include <list>
+#include <memory> // dla auto_ptr
+
+#endif
