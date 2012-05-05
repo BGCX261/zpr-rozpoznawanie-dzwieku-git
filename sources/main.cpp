@@ -1,4 +1,4 @@
-﻿/** 
+/** 
 * @file
 * Projekt ZPR 2012L, Politechnika Warszawska
 *
@@ -17,26 +17,17 @@ using namespace std;
 
 int main()
 {
-#ifdef _WIN32
-	locale oldloc;
-	try
-	{
-		locale myloc("Polish");
-		oldloc = locale::global(myloc);
-	}
-	catch(...) {}
-#endif
-
+	cout << "EiTI, Politechnika Warszawska, ZPR 2012L" << endl;
 	cout << endl;
-	cout << "Projekt ZPR pod kierownictwem dr inż. Rafała Biedrzyckiego:" << endl;
-	cout << "\"Zaimplementować algorytm indukcji klasyfikatora bazujący na sieci neuronowej\"" << endl;
+	cout << "Projekt pod kierownictwem dr inz. Rafala Biedrzyckiego:" << endl;
 	cout << endl;
-	cout << "Autorzy: Łukasz Rychter, Maciej Sikora" << endl;
+	cout << "\tRozpoznawanie dzwiekow gitarowych na podstawie ich widma" << endl;
+	cout << "\tAlgorytm indukcji klasyfikatora bazujacy na sieci neuronowej" << endl;
 	cout << endl;
+	cout << "Autorzy: Lukasz Rychter, Maciej Sikora" << endl;
 	
 #ifdef _WIN32
-	locale::global(oldloc);
-
+	cout << endl << endl;
 	system("PAUSE");
 #endif
 

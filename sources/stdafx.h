@@ -8,4 +8,3 @@
 /// Maciej Sikora
 
 #include <iostream>
-#include <locale>
