@@ -21,7 +21,7 @@ namespace neur
 class BaseLayer
 {
 protected:
-	std::list<std::auto_ptr<Neuron>>	neurons_;	///< lista wskaznikow do neuronow warstwy
+	std::list<std::auto_ptr<Neuron> >	neurons_;	///< lista wskaznikow do neuronow warstwy
 };
 
 }; //namespace

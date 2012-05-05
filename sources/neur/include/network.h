@@ -23,7 +23,7 @@ namespace neur /// Przestrzen nazw sieci neuronowej
 class Network
 {
 protected:
-	std::list<std::auto_ptr<BaseLayer>>	layers_;	///< lista wskaznikow do warstw sieci
+	std::list<std::auto_ptr<BaseLayer> >	layers_;	///< lista wskaznikow do warstw sieci
 };
 
 }; //namespace
