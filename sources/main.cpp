@@ -22,6 +22,8 @@ int main()
 	cout << endl;
 	
 #ifdef _WIN32
+	locale::global(oldloc);
+
 	system("PAUSE");
 #endif
 
