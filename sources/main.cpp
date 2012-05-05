@@ -1,6 +1,19 @@
-﻿#include "stdafx.h"
+﻿/** 
+* @file
+* Projekt ZPR 2012L, Politechnika Warszawska
+*
+* Rozpoznawanie dzwiekow gitarowych na podstawie ich widma \n
+* Algorytm indukcji klasyfikatora bazujacy na sieci neuronowej
+*
+* Prowadzacy: dr inz. Rafal Biedrzycki
+*
+* Autorzy: Lukasz Rychter, Maciej Sikora
+*/
+
+#include "stdafx.h"
 
 using namespace std;
+
 
 int main()
 {

@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "ZPR Rozpoznawanie dźwięku", "index.html", [
+  [ "Rozpoznawanie dźwieków gitarowych na podstawie ich widma", "index.html", [
     [ "Pliki", null, [
       [ "Lista plików", "files.html", "files" ],
       [ "Składowe plików", "globals.html", [
