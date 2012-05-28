@@ -1,10 +1,8 @@
+namespace media
+
 Klasa próbki FFT
 - mo¿e mieæ ró¿n¹ iloœæ tonów
 - zawiera wartoœci FFT dla ró¿nych czêstotliwoœci
-
-Klasa zestawu ucz¹cego
-- zawiera zestaw próbek FFT (j.w.)
-- zawiera przypisan¹ kategoriê
 
 Klasa kontenera audio
 - jest to bufor zawieraj¹cy nieprzetworzone próbki d¿wiêkowe
@@ -16,6 +14,14 @@ Klasa wczytuj¹ca dŸwiêki z plików WAVE
 Klasa dziel¹ca dŸwiêk na próbki FFT
 - Zamienia Klasê kontenera audio (bufor dŸwiêku) na listê próbek FFT (tnie dŸwiêk na równe kawa³ki, dla ka¿dego kawa³ka robi FFT)
 
+
+
+namespace learn
+
+Klasa zestawu ucz¹cego
+- zawiera zestaw próbek FFT (j.w.)
+- zawiera przypisan¹ kategoriê
+
 Klasa wczytuj¹ca dane ucz¹ce
 - przegl¹da wskazany katalog (w naszym przypadku sounds)
 - wed³ug podkatalogów w nim tworzy kategorie uczenia
@@ -24,16 +30,21 @@ Klasa wczytuj¹ca dane ucz¹ce
 Ka¿dy z nich przepuszcza przez Klasê wczytuj¹c¹ dŸwiêki z plików WAVE, a wynik przez Klasê dziel¹c¹ dŸwiêk na próbki FFT. 
 Listê tych próbek dodaje do Klasy próbki FFT danej kategorii (wg. katalogu, który przetwarza)
 
+Klasa nauczyciela:
+- u¿ywa Klasy wczytuj¹cej dane ucz¹ce
+- u¿ywa wczytanych danych ucz¹cych do sterowania procesem uczenia sieci - wg wczytanych danych ucz¹cych tworzy odpowiedni¹ sieæ neuronow¹ i podaje na wyjœcia po¿¹dane wyniki dla kategorii a na wejœcia kolejne próbki FFT dla kategorii
+- zwraca nauczon¹ sieæ (jakiœ sprytny wskaŸnik do niej)
+
+
+
+
 Klasy sieci neuronowej
 - konfigurowalna liczba neuronów warstwy wejœciowej, wyjœciowej i ukrytej
 - ewekntualnie mo¿liwa do zmiany funkcja aktywacji
 - mo¿na podawaæ na wejœcia sygna³y - wywo³aæ funkcjê przetwarzania - i sprawdzaæ odpowiedŸ na wyjœciu
 - mo¿na podaæ na wejœcia sygna³y na wyjœcia po¿¹dane wartoœci odpowiedzi i uruchomiæ funkcjê uczenia (z jakimiœ tam wspó³czynnikami uczenia)
 
-Klasa nauczyciela:
-- u¿ywa Klasy wczytuj¹cej dane ucz¹ce
-- u¿ywa wczytanych danych ucz¹cych do sterowania procesem uczenia sieci - wg wczytanych danych ucz¹cych tworzy odpowiedni¹ sieæ neuronow¹ i podaje na wyjœcia po¿¹dane wyniki dla kategorii a na wejœcia kolejne próbki FFT dla kategorii
-- zwraca nauczon¹ sieæ (jakiœ sprytny wskaŸnik do niej)
+
 
 Klasa g³ówna aplikacji - interfejs u¿ytkownika
 - pozwala podaæ sk¹d aplikacja ma siê uczyæ (podaæ katalog sounds, powinien byæ domyœlnie jakos ustawiony)
