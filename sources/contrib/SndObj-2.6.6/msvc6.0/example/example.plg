@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: example - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP516.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /I "../../include" /I ".." /D "_CONSOLE" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "WIN" /D "WINPTHREAD" /Fp"Release/example.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"H:\win\sndobj\msvc6.0\example\example2.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP516.tmp" 
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP517.tmp" with contents
+[
+SndObj.lib Winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /pdb:"Release/example.pdb" /machine:I386 /out:"Release/example.exe" /libpath:"../../lib" 
+.\Release\example2.obj
+\win\sndobj\msvc6.0\Release\SndObj.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP517.tmp"
+<h3>Output Window</h3>
+Compiling...
+example2.cpp
+Linking...
+Creating temporary file "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP519.bat" with contents
+[
+@echo off
+copy release\*.exe ..\bin
+]
+Creating command line "C:\DOCUME~1\VLAZZA~1\LOCALS~1\Temp\RSP519.bat"
+copying files
+release\example.exe
+        1 file(s) copied.
+
+
+
+<h3>Results</h3>
+example.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
