@@ -12,6 +12,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\media\src\mediaContainers.cpp" />
+    <ClCompile Include="..\media\src\soundReader.cpp" />
+    <ClCompile Include="..\media\src\waveReader.cpp" />
     <ClCompile Include="..\neur\src\network.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
     </ClCompile>
@@ -23,6 +26,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\media\include\mediaContainers.h" />
+    <ClInclude Include="..\media\include\soundReader.h" />
+    <ClInclude Include="..\media\include\waveReader.h" />
     <ClInclude Include="..\neur\include\baseLayer.h" />
     <ClInclude Include="..\neur\include\hiddenLayer.h" />
     <ClInclude Include="..\neur\include\inputLayer.h" />

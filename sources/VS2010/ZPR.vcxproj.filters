@@ -18,6 +18,12 @@
     <Filter Include="neur\Header Files\layers">
       <UniqueIdentifier>{792c8353-96f1-44c4-8ac5-79a1c28f1af9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="learn">
+      <UniqueIdentifier>{d18c870e-f184-4219-8607-744224539641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="media">
+      <UniqueIdentifier>{ab712dbb-01b6-4762-80ac-f09883e575ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp">
@@ -31,6 +37,15 @@
     </ClCompile>
     <ClCompile Include="..\neur\src\neuron.cpp">
       <Filter>neur\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\media\src\soundReader.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="..\media\src\mediaContainers.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="..\media\src\waveReader.cpp">
+      <Filter>media</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +69,15 @@
     </ClInclude>
     <ClInclude Include="..\neur\include\outputLayer.h">
       <Filter>neur\Header Files\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\soundReader.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\mediaContainers.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\waveReader.h">
+      <Filter>media</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
