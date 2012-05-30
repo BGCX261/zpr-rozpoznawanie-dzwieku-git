@@ -1,2 +1,2 @@
 #include "stdafx.h"
-#include "soundReader.h"
+#include "../include/soundReader.h"

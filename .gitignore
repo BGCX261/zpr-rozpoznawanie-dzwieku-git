@@ -5,3 +5,6 @@
 /ZPR.exe
 /build
 /sources/VS2010/neurTest/Debug
+/sources/VS2010/ZPR.opensdf
+/sources/VS2010/ZPR.sdf
+/sources/VS2010/ipch

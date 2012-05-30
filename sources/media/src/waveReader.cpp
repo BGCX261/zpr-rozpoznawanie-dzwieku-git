@@ -1,2 +1,2 @@
 #include "stdafx.h"
-#include "waveReader.h"
+#include "../include/waveReader.h"

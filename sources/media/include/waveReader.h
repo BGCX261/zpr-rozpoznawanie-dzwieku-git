@@ -7,12 +7,12 @@
 /// Maciej Sikora
 
 
-#ifndef __SOUND_READER_H__
-#define __SOUND_READER_H__
+#ifndef __WAVE_READER_H__
+#define __WAVE_READER_H__
 
-#include <iostream>
-#include "mediaContainer.h"
-#include "soundReader.h"
+#include <fstream>
+#include "../include/mediaContainers.h"
+#include "../include/soundReader.h"
 
 namespace media
 {
@@ -24,12 +24,12 @@ public:
 	WaveReader() {}
 	virtual ~WaveReader() { closeFile(); }
 
-	virtual bool readTo(const AudioSample& buffer);
+	virtual void readTo(const AudioSample& buffer);
 	void openFile(std::string file);
 	void closeFile();
 
 protected:
-	std::iostream file_;
+	std::fstream file_;
 
 };
 

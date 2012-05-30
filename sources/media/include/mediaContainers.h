@@ -10,7 +10,7 @@
 #ifndef __MEDIA_CONTAINERS_H__
 #define __MEDIA_CONTAINERS_H__
 
-#include "mediaContainers.h"
+#include <vector>
 
 namespace media
 {
@@ -41,8 +41,8 @@ public:
 class AudioSample : public SimpleBuffer<unsigned short>
 {
 public:
-	unsigned short getLength() { return buffer_.size() * 1000 / sampleRate_) } //ms
-	unsigned short getSampleRate() { return sampleRate_ }
+	unsigned short getLength() { return buffer_.size() * 1000 / sampleRate_; } //ms
+	unsigned short getSampleRate() { return sampleRate_; }
 
 protected:
 	unsigned short sampleRate_;
