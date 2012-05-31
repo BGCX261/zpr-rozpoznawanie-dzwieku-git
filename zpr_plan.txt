@@ -11,6 +11,10 @@ Klasa wczytuj¹ca dŸwiêki z plików WAVE
 - otwiera plik WAVE, parsuje nag³ówek, wczytuje dane do Klasy kontenera audio
 - ewentualnie robi jakiœ potrzebny preprocesing (robi tylko mono, resampling czy coœ co bêdzie potrzebne)
 
+Klasa wykonuj¹ca FFT
+- inicjalizuje bibliotekê FFTW
+- wykonuje FFT przyjmuj¹c na wejœcia bufor klasy kontenera audio i daj¹c na wyjœcie bufor klasy próbki FFT
+
 Klasa dziel¹ca dŸwiêk na próbki FFT
 - Zamienia Klasê kontenera audio (bufor dŸwiêku) na listê próbek FFT (tnie dŸwiêk na równe kawa³ki, dla ka¿dego kawa³ka robi FFT)
 
@@ -37,6 +41,7 @@ Klasa nauczyciela:
 
 
 
+namespace neur
 
 Klasy sieci neuronowej
 - konfigurowalna liczba neuronów warstwy wejœciowej, wyjœciowej i ukrytej
@@ -45,6 +50,8 @@ Klasy sieci neuronowej
 - mo¿na podaæ na wejœcia sygna³y na wyjœcia po¿¹dane wartoœci odpowiedzi i uruchomiæ funkcjê uczenia (z jakimiœ tam wspó³czynnikami uczenia)
 
 
+
+bez namespace
 
 Klasa g³ówna aplikacji - interfejs u¿ytkownika
 - pozwala podaæ sk¹d aplikacja ma siê uczyæ (podaæ katalog sounds, powinien byæ domyœlnie jakos ustawiony)

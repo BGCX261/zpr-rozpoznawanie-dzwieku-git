@@ -1,8 +1,9 @@
 /** 
 * @file
-* Deklaracja klasy Network
-* 
-* Udostepnia interfejs pozwalajacy uzywac sieci neuronowej
+* Declaration of Network class
+*
+* It represents whole neural network structure \n
+* Provides interface to control the whole neural network
 */
 
 /// Lukasz Rychter
@@ -13,17 +14,17 @@
 #define __NETWORK_H__
 
 #include <list>
-#include <memory> // dla auto_ptr
+#include <memory> // for auto_ptr
 #include "baseLayer.h"
 
-namespace neur /// Przestrzen nazw sieci neuronowej
+namespace neur /// neural network namespace
 {
 
-/// Klasa reprezentujaca siec neuronowa
+/// Class representing whole neural network structure
 class Network
 {
 protected:
-	std::list<std::auto_ptr<BaseLayer> >	layers_;	///< lista wskaznikow do warstw sieci
+	std::list<std::auto_ptr<BaseLayer> >	layers_;	///< list of pointers to layers of the neural network
 };
 
 }; //namespace

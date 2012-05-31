@@ -113,36 +113,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </div><!--header-->
 <div class="contents">
 <a href="network_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00008"></a>00008 
 <a name="l00009"></a>00009 
 <a name="l00010"></a>00010 
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012 <span class="preprocessor">#ifndef __NETWORK_H__</span>
-<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#define __NETWORK_H__</span>
-<a name="l00014"></a>00014 <span class="preprocessor"></span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;list&gt;</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;memory&gt;</span> <span class="comment">// dla auto_ptr</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="base_layer_8h.html">baseLayer.h</a>&quot;</span>
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="keyword">namespace </span>neur 
-<a name="l00020"></a>00020 {
-<a name="l00021"></a>00021 
-<a name="l00023"></a><a class="code" href="classneur_1_1_network.html">00023</a> <span class="keyword">class </span><a class="code" href="classneur_1_1_network.html" title="Klasa reprezentujaca siec neuronowa.">Network</a>
-<a name="l00024"></a>00024 {
-<a name="l00025"></a>00025 <span class="keyword">protected</span>:
-<a name="l00026"></a><a class="code" href="classneur_1_1_network.html#a654214d645d9095af8e6c9aee421fa7f">00026</a>            std::list&lt;std::auto_ptr&lt;BaseLayer&gt;&gt;         <a class="code" href="classneur_1_1_network.html#a654214d645d9095af8e6c9aee421fa7f" title="lista wskaznikow do warstw sieci">layers_</a>;   
-<a name="l00027"></a>00027 };
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 }; <span class="comment">//namespace</span>
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="preprocessor">#endif</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="preprocessor">#ifndef __NETWORK_H__</span>
+<a name="l00014"></a>00014 <span class="preprocessor"></span><span class="preprocessor">#define __NETWORK_H__</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &lt;list&gt;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;memory&gt;</span> <span class="comment">// for auto_ptr</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="base_layer_8h.html">baseLayer.h</a>&quot;</span>
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 <span class="keyword">namespace </span>neur 
+<a name="l00021"></a>00021 {
+<a name="l00022"></a>00022 
+<a name="l00024"></a><a class="code" href="classneur_1_1_network.html">00024</a> <span class="keyword">class </span><a class="code" href="classneur_1_1_network.html" title="Class representing whole neural network structure.">Network</a>
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026 <span class="keyword">protected</span>:
+<a name="l00027"></a><a class="code" href="classneur_1_1_network.html#a654214d645d9095af8e6c9aee421fa7f">00027</a>            std::list&lt;std::auto_ptr&lt;BaseLayer&gt; &gt;        <a class="code" href="classneur_1_1_network.html#a654214d645d9095af8e6c9aee421fa7f" title="list of pointers to layers of the neural network">layers_</a>;   
+<a name="l00028"></a>00028 };
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 }; <span class="comment">//namespace</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="network_8h.html">network.h</a>      </li>
 
-    <li class="footer">Wygenerowano Sun May 6 2012 01:10:13 dla Rozpoznawanie dźwieków gitarowych na podstawie ich widma programem
+    <li class="footer">Wygenerowano Thu May 31 2012 17:15:40 dla Rozpoznawanie dźwieków gitarowych na podstawie ich widma programem
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
    </ul>

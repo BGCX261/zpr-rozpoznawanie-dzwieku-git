@@ -24,34 +24,70 @@
     <Filter Include="media">
       <UniqueIdentifier>{ab712dbb-01b6-4762-80ac-f09883e575ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="media\Source Files">
+      <UniqueIdentifier>{13b1c98d-6278-4a65-86d5-82127e2eb4f2}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="media\Header Files">
+      <UniqueIdentifier>{7f863a80-f9e6-4dbf-8f26-5600632c2716}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="learn\Source Files">
+      <UniqueIdentifier>{220152ad-9dee-459b-99ea-f6a30d9f65ae}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="learn\Header Files">
+      <UniqueIdentifier>{9f4e9dab-c051-4cea-a5a1-bc85e2554670}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="main\Header Files">
+      <UniqueIdentifier>{6ba21755-3fe7-4a19-a451-8f8089a049a6}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="main\Source Files">
+      <UniqueIdentifier>{55f6564b-79bb-4a70-b424-d809dff0fbfb}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\main.cpp">
-      <Filter>main</Filter>
-    </ClCompile>
-    <ClCompile Include="..\stdafx.cpp">
-      <Filter>main</Filter>
-    </ClCompile>
     <ClCompile Include="..\neur\src\network.cpp">
       <Filter>neur\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\neur\src\neuron.cpp">
       <Filter>neur\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\media\src\soundReader.cpp">
-      <Filter>media</Filter>
-    </ClCompile>
     <ClCompile Include="..\media\src\mediaContainers.cpp">
-      <Filter>media</Filter>
+      <Filter>media\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\media\src\soundReader.cpp">
+      <Filter>media\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\media\src\waveReader.cpp">
-      <Filter>media</Filter>
+      <Filter>media\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\media\src\fft.cpp">
+      <Filter>media\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\media\src\fftSampler.cpp">
+      <Filter>media\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\learn\src\teacher.cpp">
+      <Filter>learn\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main.cpp">
+      <Filter>main\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\stdafx.cpp">
+      <Filter>main\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\learn\src\learningSetReader.cpp">
+      <Filter>learn\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\myApp.cpp">
+      <Filter>main\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\stdafx.h">
-      <Filter>main</Filter>
-    </ClInclude>
     <ClInclude Include="..\neur\include\network.h">
       <Filter>neur\Header Files</Filter>
     </ClInclude>
@@ -70,14 +106,35 @@
     <ClInclude Include="..\neur\include\outputLayer.h">
       <Filter>neur\Header Files\layers</Filter>
     </ClInclude>
-    <ClInclude Include="..\media\include\soundReader.h">
-      <Filter>media</Filter>
-    </ClInclude>
     <ClInclude Include="..\media\include\mediaContainers.h">
-      <Filter>media</Filter>
+      <Filter>media\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\soundReader.h">
+      <Filter>media\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\media\include\waveReader.h">
-      <Filter>media</Filter>
+      <Filter>media\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\fft.h">
+      <Filter>media\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\fftSampler.h">
+      <Filter>media\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\learn\include\learningSet.h">
+      <Filter>learn\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\learn\include\teacher.h">
+      <Filter>learn\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\learn\include\learningSetReader.h">
+      <Filter>learn\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\stdafx.h">
+      <Filter>main\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\myApp.h">
+      <Filter>main\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

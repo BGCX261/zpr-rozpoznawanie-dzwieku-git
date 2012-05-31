@@ -1,6 +1,8 @@
 /** 
 * @file
-* Deklaracja klasy outputLayer
+* Declaration of OutputLayer class
+*
+* Class representing output layer of neural network
 */
 
 /// Lukasz Rychter
@@ -15,7 +17,7 @@
 namespace neur
 {
 
-/// Klasa warstwy wyjsciowej sieci neuronowej
+/// Class representing output layer of neural network
 class outputLayer : public BaseLayer
 {
 

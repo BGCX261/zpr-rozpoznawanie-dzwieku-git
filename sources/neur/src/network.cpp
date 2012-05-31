@@ -1,8 +1,9 @@
 /** 
 * @file
-* Implementacja klasy Network
+* Implementation of Network class
 * 
-* Udostepnia interfejs pozwalajacy uzywac sieci neuronowej
+* It represents whole neural network structure \n
+* Provides interface to control the whole neural network
 */
 
 /// Lukasz Rychter
@@ -10,3 +11,5 @@
 
 #include "stdafx.h"
 #include "network.h"
+
+using namespace neur;

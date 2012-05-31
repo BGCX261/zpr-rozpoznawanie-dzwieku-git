@@ -1,6 +1,8 @@
 /** 
 * @file
-* Deklaracja klasy InputLayer
+* Declaration of InputLayer class
+*
+* Class representing input layer of neural network
 */
 
 /// Lukasz Rychter
@@ -15,7 +17,7 @@
 namespace neur
 {
 
-/// Klasa warstwy wejsciowej sieci neuronowej
+/// Class representing input layer of neural network
 class InputLayer : public BaseLayer
 {
 

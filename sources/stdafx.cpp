@@ -1,7 +1,7 @@
 /** 
 * @file
-* Plik tworzacy naglowek prekompilowalny \n
-* Uzywany tylko przez kompilatory Microsoftu
+* File that creates precompiled headery \n
+* Only used by Microsoft compilers
 */
 
 /// Lukasz Rychter

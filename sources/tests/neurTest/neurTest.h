@@ -1,6 +1,6 @@
 /** 
 * @file
-* Deklaracja klasy NeurTest - testow jednostkowych modulu sieci neuronowej
+* Declaration of NeurTest class - unit tests for neural network module
 */
 
 /// Lukasz Rychter

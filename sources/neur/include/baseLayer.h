@@ -1,8 +1,9 @@
 /** 
 * @file
-* Deklaracja klasy BaseLayer
+* Declaration of BaseLayer class
+*
+* Base class for all layers in neural network
 */
-
 /// Lukasz Rychter
 /// Maciej Sikora
 
@@ -11,17 +12,17 @@
 #define __BASE_LAYER_H__
 
 #include <list>
-#include <memory> // dla auto_ptr
+#include <memory> // for auto_ptr
 #include "neuron.h"
 
 namespace neur
 {
 
-/// Klasa bazowa dla warstw w sieci neuronowej
+/// Base class for all layers in neural network
 class BaseLayer
 {
 protected:
-	std::list<std::auto_ptr<Neuron> >	neurons_;	///< lista wskaznikow do neuronow warstwy
+	std::list<std::auto_ptr<Neuron> >	neurons_;	///< list of pointers to neurons from this layer
 };
 
 }; //namespace

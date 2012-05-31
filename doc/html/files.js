@@ -1,9 +1,20 @@
 var files =
 [
     [ "baseLayer.h", "base_layer_8h.html", null ],
+    [ "fft.cpp", "fft_8cpp.html", null ],
+    [ "fft.h", "fft_8h.html", null ],
+    [ "fftSampler.cpp", "fft_sampler_8cpp.html", null ],
+    [ "fftSampler.h", "fft_sampler_8h.html", null ],
     [ "hiddenLayer.h", "hidden_layer_8h.html", null ],
     [ "inputLayer.h", "input_layer_8h.html", null ],
+    [ "learningSet.h", "learning_set_8h.html", null ],
+    [ "learningSetReader.cpp", "learning_set_reader_8cpp.html", null ],
+    [ "learningSetReader.h", "learning_set_reader_8h.html", null ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
+    [ "mediaContainers.cpp", "media_containers_8cpp.html", null ],
+    [ "mediaContainers.h", "media_containers_8h.html", null ],
+    [ "myApp.cpp", "my_app_8cpp.html", null ],
+    [ "myApp.h", "my_app_8h.html", null ],
     [ "network.cpp", "network_8cpp.html", null ],
     [ "network.h", "network_8h.html", null ],
     [ "neuron.cpp", "neuron_8cpp.html", null ],
@@ -11,6 +22,12 @@ var files =
     [ "neurTest.cpp", "neur_test_8cpp.html", null ],
     [ "neurTest.h", "neur_test_8h.html", null ],
     [ "outputLayer.h", "output_layer_8h.html", null ],
+    [ "soundReader.cpp", "sound_reader_8cpp.html", null ],
+    [ "soundReader.h", "sound_reader_8h.html", null ],
     [ "stdafx.cpp", "stdafx_8cpp.html", null ],
-    [ "stdafx.h", "stdafx_8h.html", null ]
+    [ "stdafx.h", "stdafx_8h.html", null ],
+    [ "teacher.cpp", "teacher_8cpp.html", null ],
+    [ "teacher.h", "teacher_8h.html", null ],
+    [ "waveReader.cpp", "wave_reader_8cpp.html", null ],
+    [ "waveReader.h", "wave_reader_8h.html", null ]
 ];

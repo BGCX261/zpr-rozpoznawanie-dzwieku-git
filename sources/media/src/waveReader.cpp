@@ -1,5 +1,15 @@
+/** 
+* @file
+* Implementation of WaveReader class
+* 
+* Reads sounds from WAVE files
+*/
+
+/// Lukasz Rychter
+/// Maciej Sikora
+
 #include "stdafx.h"
-#include "../include/waveReader.h"
+#include "waveReader.h"
 
 // TODO
 #include <iostream>
@@ -9,9 +19,11 @@ using namespace media;
 // Now it'll be like this.
 std::string WaveReader::file_prefix_ = "";
 
-void WaveReader::openFile(std::string file) {
-	std::fstream wav_file(file, std::ios::out);
-	if (wav_file.fail()) {
+void WaveReader::openFile(std::string file) 
+{
+	std::fstream wav_file(file, std::ios::in | std::ios::binary);
+	if (wav_file.fail()) 
+	{
 		// TODO
 		// throw exception
 		std::cout << "blad przy konstrukcji!" << std::endl;
@@ -28,7 +40,7 @@ void WaveReader::openFile(std::string file) {
 	std::cout.write(header_buffer, 4); // to 
 	// TODO
 	// hardcode path - to modify
-	std::ofstream my_out_file("C:/Users/Maciek/Desktop/test.txt", std::ios::in);
+	std::ofstream my_out_file("C:/Users/Maciek/Desktop/test.txt", std::ios::out | std::ios::binary);
 	if (!my_out_file.fail() && my_out_file.is_open())
 		std::cout << std::endl << "output ok" << std::endl;
 	my_out_file.write(header_buffer, 4);
@@ -38,15 +50,18 @@ void WaveReader::openFile(std::string file) {
 	my_out_file.close();
 }
 
-void WaveReader::closeFile() {
+void WaveReader::closeFile() 
+{
 	// TODO
 }
 
-void WaveReader::readTo(const AudioSample& buffer) {
+void WaveReader::readTo(const AudioSample& buffer) 
+{
 	// TODO
 }
 
-void WaveReader::waveReaderTests() {
+void WaveReader::waveReaderTests() 
+{
 	WaveReader *reader = new WaveReader();
 	// TODO
 	// hardcode path - to modify

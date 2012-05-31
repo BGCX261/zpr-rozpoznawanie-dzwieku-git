@@ -1,6 +1,8 @@
 /** 
 * @file
-* Declaration of class reading sounds from WAVE files
+* Declaration of WaveReader class
+*
+* Reads sounds from WAVE files
 */
 
 /// Lukasz Rychter
@@ -11,8 +13,8 @@
 #define __WAVE_READER_H__
 
 #include <fstream>
-#include "../include/mediaContainers.h"
-#include "../include/soundReader.h"
+#include "mediaContainers.h"
+#include "soundReader.h"
 
 namespace media
 {

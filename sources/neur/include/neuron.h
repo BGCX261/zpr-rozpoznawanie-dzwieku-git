@@ -1,6 +1,8 @@
 /** 
 * @file
-* Deklaracja klasy Neuron
+* Declaration of Neuron class
+*
+* It represents single neuron object from neural network
 */
 
 /// Lukasz Rychter
@@ -13,7 +15,7 @@
 namespace neur
 {
 
-/// Klasa reprezentujaca pojedynczy neuron
+/// Class representing single neuron object from neural network
 class Neuron
 {
 

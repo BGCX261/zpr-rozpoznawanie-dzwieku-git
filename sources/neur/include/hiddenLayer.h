@@ -1,6 +1,8 @@
 /** 
 * @file
-* Deklaracja klasy HiddenLayer
+* Declaration of HiddenLayer class
+*
+* Class representing "hidden" layer of neural network
 */
 
 /// Lukasz Rychter
@@ -15,7 +17,7 @@
 namespace neur
 {
 
-/// Klasa warstwy "ukrytej" sieci neuronowej
+/// Class representing "hidden" layer of neural network
 class HiddenLayer : public BaseLayer
 {
 

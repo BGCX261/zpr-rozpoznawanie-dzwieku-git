@@ -1,6 +1,8 @@
 /** 
 * @file
-* Declaration of class reading sounds from any source
+* Declaration of SoundReader class
+*
+* It gives abstract interface for reading sound from any source
 */
 
 /// Lukasz Rychter

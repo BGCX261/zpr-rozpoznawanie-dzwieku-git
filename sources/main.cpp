@@ -1,19 +1,19 @@
 /** 
 * @file
-* Projekt ZPR 2012L, Politechnika Warszawska
+* Students project for "ZPR" classes, 2012L, Warsaw University of Technology
 *
-* Rozpoznawanie dzwiekow gitarowych na podstawie ich widma \n
-* Algorytm indukcji klasyfikatora bazujacy na sieci neuronowej
+* Guitar sounds recognition based on its spectrum \n
+* Classifier induction algorithm based on neural network
 *
-* Prowadzacy: dr inz. Rafal Biedrzycki
+* Project tutor: PhD Eng. Rafal Biedrzycki
 *
-* Autorzy: Lukasz Rychter, Maciej Sikora
+* Authors: Lukasz Rychter, Maciej Sikora
 */
 
 #include "stdafx.h"
 #include <iostream>
 
-#include "media/include/waveReader.h"
+#include "waveReader.h"
 
 using namespace std;
 

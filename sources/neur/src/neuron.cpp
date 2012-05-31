@@ -1,6 +1,8 @@
 /** 
 * @file
-* Implementacja klasy Neuron
+* Implementation of Neuron class
+* 
+* It represents single neuron object from neural network
 */
 
 /// Lukasz Rychter
@@ -8,3 +10,5 @@
 
 #include "stdafx.h"
 #include "neuron.h"
+
+using namespace neur;

@@ -1,7 +1,7 @@
 /**
 * @file
-* Plik zawierajacy podstawowy zestaw naglowkow systemowych \n
-* W przypadku uzycia kompilatora Microsoftu beda to naglowki prekompilowane
+* File containing basic set of headers \n
+* In case of use of Microsoft compiller, they will be precompiled
 */
 
 /// Lukasz Rychter

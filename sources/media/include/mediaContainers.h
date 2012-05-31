@@ -1,18 +1,19 @@
 /** 
 * @file
-* Declaration of class representing sample of sound before processing
+* Declaration of media container classes
+* 
+* Those classes are specific buffers for audio data before and after processing
 */
 
 /// Lukasz Rychter
 /// Maciej Sikora
-
 
 #ifndef __MEDIA_CONTAINERS_H__
 #define __MEDIA_CONTAINERS_H__
 
 #include <vector>
 
-namespace media
+namespace media /// namespace for media processing modules
 {
 
 /// Declaration of class representing sample of sound before processing
@@ -38,6 +39,7 @@ public:
 
 };
 
+
 class AudioSample : public SimpleBuffer<unsigned short>
 {
 public:
@@ -48,7 +50,7 @@ protected:
 	unsigned short sampleRate_;
 };
 
-}; //namespace
 
+}; //namespace
 
 #endif
