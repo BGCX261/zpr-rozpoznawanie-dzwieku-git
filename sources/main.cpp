@@ -13,8 +13,9 @@
 #include "stdafx.h"
 #include <iostream>
 
-using namespace std;
+#include "media/include/waveReader.h"
 
+using namespace std;
 
 int main()
 {
@@ -26,6 +27,8 @@ int main()
 	cout << "\tAlgorytm indukcji klasyfikatora bazujacy na sieci neuronowej" << endl;
 	cout << endl;
 	cout << "Autorzy: Lukasz Rychter, Maciej Sikora" << endl;
+
+	media::WaveReader::waveReaderTests();
 	
 #ifdef _WIN32
 	cout << endl << endl;
