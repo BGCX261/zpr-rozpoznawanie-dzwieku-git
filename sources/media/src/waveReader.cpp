@@ -6,11 +6,11 @@
 
 using namespace media;
 
-// Now it's like this.
+// Now it'll be like this.
 std::string WaveReader::file_prefix_ = "";
 
 void WaveReader::openFile(std::string file) {
-	std::fstream wav_file(file);
+	std::fstream wav_file(file, std::ios::out);
 	if (wav_file.fail()) {
 		// TODO
 		// throw exception
@@ -25,15 +25,17 @@ void WaveReader::openFile(std::string file) {
 	for (int i = 0; i < 4; ++i)
 		header_buffer[i] = 0;
 	wav_file.read(header_buffer, 4);
-	std::cout.write(header_buffer, 4);
-	std::ofstream my_out("test.txt", std::ios::in);
-	if (!my_out.fail() && my_out.is_open())
+	std::cout.write(header_buffer, 4); // to 
+	// TODO
+	// hardcode path - to modify
+	std::ofstream my_out_file("C:/Users/Maciek/Desktop/test.txt", std::ios::in);
+	if (!my_out_file.fail() && my_out_file.is_open())
 		std::cout << std::endl << "output ok" << std::endl;
-	my_out.write(header_buffer, 4);
-	if (!my_out.fail() && my_out.is_open())
+	my_out_file.write(header_buffer, 4);
+	if (!my_out_file.fail() && my_out_file.is_open())
 		std::cout << "output po zapisie ok" << std::endl;
 	wav_file.close();
-	my_out.close();
+	my_out_file.close();
 }
 
 void WaveReader::closeFile() {
