@@ -10,7 +10,9 @@
 #ifdef _WIN32
 
 #include <iostream>
+#include <fstream>
 #include <list>
+#include <vector>
 #include <memory> // dla auto_ptr
 
 #endif

@@ -12,7 +12,7 @@
 #ifndef __SOUND_READER_H__
 #define __SOUND_READER_H__
 
-#include "../include/mediaContainers.h"
+#include "../include/audioSample.h"
 
 namespace media
 {

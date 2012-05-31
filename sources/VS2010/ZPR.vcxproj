@@ -15,8 +15,7 @@
     <ClCompile Include="..\learn\src\teacher.cpp" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\media\src\fft.cpp" />
-    <ClCompile Include="..\media\src\fftSampler.cpp" />
-    <ClCompile Include="..\media\src\mediaContainers.cpp" />
+    <ClCompile Include="..\media\src\fftSampleBuilder.cpp" />
     <ClCompile Include="..\media\src\soundReader.cpp" />
     <ClCompile Include="..\media\src\waveReader.cpp" />
     <ClCompile Include="..\myApp.cpp" />
@@ -34,9 +33,12 @@
     <ClInclude Include="..\learn\include\learningSet.h" />
     <ClInclude Include="..\learn\include\learningSetReader.h" />
     <ClInclude Include="..\learn\include\teacher.h" />
+    <ClInclude Include="..\media\include\audioSample.h" />
     <ClInclude Include="..\media\include\fft.h" />
-    <ClInclude Include="..\media\include\fftSampler.h" />
-    <ClInclude Include="..\media\include\mediaContainers.h" />
+    <ClInclude Include="..\media\include\fftSampleBuilder.h" />
+    <ClInclude Include="..\media\include\fftSample.h" />
+    <ClInclude Include="..\media\include\simpleBuffer.h" />
+    <ClInclude Include="..\media\include\simpleBufferImpl.h" />
     <ClInclude Include="..\media\include\soundReader.h" />
     <ClInclude Include="..\media\include\waveReader.h" />
     <ClInclude Include="..\myApp.h" />
@@ -88,6 +90,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../learn/include;../neur/include;../media/include</AdditionalIncludeDirectories>
+      <ExceptionHandling>Sync</ExceptionHandling>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

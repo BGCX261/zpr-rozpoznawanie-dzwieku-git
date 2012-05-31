@@ -13,7 +13,6 @@
 #define __WAVE_READER_H__
 
 #include <fstream>
-#include "mediaContainers.h"
 #include "soundReader.h"
 
 namespace media

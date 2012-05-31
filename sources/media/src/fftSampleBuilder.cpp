@@ -1,6 +1,6 @@
 /** 
 * @file
-* Implementation of FFTSampler class
+* Implementation of FFTSampleBuilder class
 * 
 * Provides functions to cut signal into pieces - samples and then convert them into theirs spectrum using Fast Fourier Transform algorithm
 */
@@ -9,6 +9,6 @@
 /// Maciej Sikora
 
 #include "stdafx.h"
-#include "fftSampler.h"
+#include "fftSampleBuilder.h"
 
 using namespace media;

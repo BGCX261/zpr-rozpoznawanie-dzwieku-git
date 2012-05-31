@@ -48,6 +48,9 @@
       <UniqueIdentifier>{55f6564b-79bb-4a70-b424-d809dff0fbfb}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="media\Header Files\buffers">
+      <UniqueIdentifier>{b764b434-2979-40d8-bcda-41d52043c833}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\neur\src\network.cpp">
@@ -56,9 +59,6 @@
     <ClCompile Include="..\neur\src\neuron.cpp">
       <Filter>neur\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\media\src\mediaContainers.cpp">
-      <Filter>media\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\media\src\soundReader.cpp">
       <Filter>media\Source Files</Filter>
     </ClCompile>
@@ -66,9 +66,6 @@
       <Filter>media\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\media\src\fft.cpp">
-      <Filter>media\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\media\src\fftSampler.cpp">
       <Filter>media\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\learn\src\teacher.cpp">
@@ -85,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="..\myApp.cpp">
       <Filter>main\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\media\src\fftSampleBuilder.cpp">
+      <Filter>media\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,9 +106,6 @@
     <ClInclude Include="..\neur\include\outputLayer.h">
       <Filter>neur\Header Files\layers</Filter>
     </ClInclude>
-    <ClInclude Include="..\media\include\mediaContainers.h">
-      <Filter>media\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\media\include\soundReader.h">
       <Filter>media\Header Files</Filter>
     </ClInclude>
@@ -116,9 +113,6 @@
       <Filter>media\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\media\include\fft.h">
-      <Filter>media\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\media\include\fftSampler.h">
       <Filter>media\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\learn\include\learningSet.h">
@@ -135,6 +129,21 @@
     </ClInclude>
     <ClInclude Include="..\myApp.h">
       <Filter>main\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\fftSampleBuilder.h">
+      <Filter>media\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\audioSample.h">
+      <Filter>media\Header Files\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\fftSample.h">
+      <Filter>media\Header Files\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\simpleBuffer.h">
+      <Filter>media\Header Files\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\media\include\simpleBufferImpl.h">
+      <Filter>media\Header Files\buffers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
