@@ -30,6 +30,13 @@ inline const CONTAINER& SimpleBuffer<T, CONTAINER>::get() const throw(...)
 
 
 template <typename T, class CONTAINER>
+inline CONTAINER& SimpleBuffer<T, CONTAINER>::getWritable() throw(...)
+{
+	return const_cast<CONTAINER&>(get());
+}
+
+
+template <typename T, class CONTAINER>
 void SimpleBuffer<T, CONTAINER>::set(const T* data, unsigned int count, size_t elSize) throw(...)
 {
 	if (buffer_.get())

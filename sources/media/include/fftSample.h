@@ -8,8 +8,8 @@
 /// Lukasz Rychter
 /// Maciej Sikora
 
-#ifndef __MEDIA_CONTAINERS_H__
-#define __MEDIA_CONTAINERS_H__
+#ifndef __FFT_SAMPLE_H__
+#define __FFT_SAMPLE_H__
 
 #include "simpleBuffer.h"
 
@@ -22,7 +22,9 @@ public:
 	FFTSample(unsigned short spectralRange=0) : spectralRange_(spectralRange) {} /// default constructor. Construct empty object. Spectral range may be set
 	FFTSample(unsigned short* data, unsigned int count, unsigned short spectralRange=0) : spectralRange_(spectralRange), SimpleBuffer<unsigned short>(data, count) {} /// Construct object with provided data. Spectral range may be set
 
+	void			setBandsNum(unsigned int size) throw(...) { getWritable().resize(size); } /// allocates buffer for given number of bands. May throw bad_alloc
 	unsigned short	getBandsNum() const throw() { return getSize(); } /// returns number of spectral bands
+	
 	void			setSpectralRange(unsigned short spectralRange) throw() { spectralRange_ = spectralRange; } /// allows to set spectral range
 	unsigned short	getSpectralRange() const throw() { return spectralRange_; } /// returns spectral range
 
@@ -34,13 +36,21 @@ public:
 		else
 			throw std::out_of_range("Cannot compute spectral resolution because number of bands is 0");
 	}
-	
-	volatile const unsigned short& operator[] (unsigned int index) const throw(...) /// accesor to bands values. May throw on bad index
+
+	const unsigned short& operator[] (unsigned int index) const throw(...) /// accesor (read-only) to bands values. May throw on bad index
 	{ 
 		if (index >= getSize())
 			throw std::out_of_range("Index is out of range");
 
 		return get()[index]; 
+	}
+	
+	unsigned short& operator[] (unsigned int index) throw(...) /// accesor (writable) to bands values. May throw on bad index
+	{ 
+		if (index >= getSize())
+			throw std::out_of_range("Index is out of range");
+
+		return getWritable()[index]; 
 	}
 
 protected:

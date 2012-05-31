@@ -8,8 +8,8 @@
 /// Lukasz Rychter
 /// Maciej Sikora
 
-#ifndef __MEDIA_CONTAINERS_H__
-#define __MEDIA_CONTAINERS_H__
+#ifndef __AUDIO_SAMPLE_H__
+#define __AUDIO_SAMPLE_H__
 
 #include "simpleBuffer.h"
 
