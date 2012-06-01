@@ -28,8 +28,6 @@ int main()
 	cout << endl;
 	cout << "Autorzy: Lukasz Rychter, Maciej Sikora" << endl;
 
-	media::WaveReader::waveReaderTests();
-	
 #ifdef _WIN32
 	cout << endl << endl;
 	system("PAUSE");

@@ -12,8 +12,7 @@
 #include "waveReader.h"
 
 #include <cstring>
-// TODO
-#include <iostream>
+#include <stdexcept>
 
 using namespace media;
 
@@ -27,12 +26,11 @@ void WaveReader::openFile(std::string file)
 	file_ = std::fstream(file, std::ios::in | std::ios::binary);
 	if (file_.fail()) 
 	{
-		// TODO
-		// throw exception
-		return;
+		throw std::runtime_error("Opening file failed.");
 	}
 	const int size = 5;
 	const char str_end = '\0';
+
 	// Varbiable names correspond to WAV file header names.
 	byte id[size], format[size], description[size], data_indicator[size];
 	dword file_size, format_length, sample_rate, avg_bytes_per_sec;
@@ -42,7 +40,7 @@ void WaveReader::openFile(std::string file)
 	id[size - 1] = str_end;
 	if (!strcmp(id, wav_id_value_))
 	{
-		file_.read((char *)&file_size, sizeof(dword)); // read 4 bytes
+		file_.read((char *)&file_size, sizeof(dword));
 		file_.read(format, sizeof(byte) * 4);
 		format[size - 1] = str_end;
 		if (!strcmp(format, wav_format_id_value_))
@@ -51,9 +49,9 @@ void WaveReader::openFile(std::string file)
 			description[size - 1] = str_end;
 			if (!strcmp(description, wav_description_value_))
 			{
-				// It's is almost sure that this is a WAV file.
-				file_.read((char *)&format_length, sizeof(dword)); // read 4 bytes
-				file_.read((char *)&format_tag, sizeof(word)); // read 2 bytes
+				// It's now almost sure that this is a WAV file.
+				file_.read((char *)&format_length, sizeof(dword));
+				file_.read((char *)&format_tag, sizeof(word));
 				file_.read((char *)&channels, sizeof(word));
 				file_.read((char *)&sample_rate, sizeof(dword));
 				file_.read((char *)&avg_bytes_per_sec, sizeof(dword));
@@ -62,7 +60,8 @@ void WaveReader::openFile(std::string file)
 				file_.read(data_indicator, sizeof(byte) * 4);
 				data_indicator[size - 1] = str_end;
 				if (strcmp(data_indicator, wav_data_id_value_))
-				{ // throw away additional params
+				{ 
+					// throw away additional params
 					const int temp_size = 4;
 					byte temp_byte;
 					byte temp_buff[temp_size];
@@ -75,36 +74,25 @@ void WaveReader::openFile(std::string file)
 							file_.read(temp_buff, sizeof(byte) * 3);
 							temp_buff[temp_size - 1] = str_end;
 							if (!strcmp(temp_buff, wav_data_id_value_ + 1)) // temp_buff == 'ata'?
-								// it's fine - after that we'll have audio data
 								break;
 						}
 					}
 					if (file_.eof())
-						// TODO
-						// wyjatek - zly plik
-						;
+						throw std::runtime_error("Bad file structure - no 'data' section");
 				}
 
 				file_.read((char *)&data_size_, sizeof(dword));
 				if (data_size_ < 0)
-					// TODO
-					// wyjatek - zly rozmiar danych
-					;
+					throw std::runtime_error("Bad file structure - 'data size' is not positive");
 			}
-			else // there is no 'fmt ' in headers
-				// TODO
-				// wyjatek - bledny naglowek
-				;
+			else
+				throw std::runtime_error("Bad file structure - bad 'description' value");
 		}
-		else // there is no 'WAVE' in headers
-			// TODO
-			// wyjatek - bledny naglowek
-			;
+		else
+			throw std::runtime_error("Bad file structure - bad 'format' value");
 	}
-	else // there is no 'RIFF' in headers
-		// TODO
-		// wyjatek - bledny naglowek
-		;
+	else
+		throw std::runtime_error("Bad file structure - bad 'id' value");
 }
 
 void WaveReader::closeFile() 
@@ -115,14 +103,4 @@ void WaveReader::closeFile()
 void WaveReader::readTo(const AudioSample& buffer) 
 {
 	// TODO
-}
-
-void WaveReader::waveReaderTests() 
-{
-	WaveReader *reader = new WaveReader();
-	// TODO
-	// hardcode path - to modify
-	std::string file_name = "C:/Users/Maciek/Desktop/1.wav";
-	reader->openFile(file_name);
-	delete reader;
 }
