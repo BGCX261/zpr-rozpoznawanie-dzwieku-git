@@ -22,21 +22,29 @@ namespace media
 class WaveReader : public SoundReader
 {
 public:
+	typedef char byte;
+	typedef unsigned short word;
+	typedef unsigned int dword;
+
 	WaveReader() {}
 	virtual ~WaveReader() { closeFile(); }
 
 	virtual void readTo(const AudioSample& buffer);
 	void openFile(std::string file);
 	void closeFile();
-	
-	static std::string file_prefix_;
 
+	static const char * wav_id_value_;
+	static const char * wav_format_id_value_;
+	static const char * wav_description_value_;
+	static const char * wav_data_id_value_;
+	
 	// TODO
 	// temporary - that is easily for now
 	static void waveReaderTests();
 
 protected:
 	std::fstream file_;
+	int data_size_;
 
 };
 
