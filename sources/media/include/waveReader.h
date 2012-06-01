@@ -44,7 +44,7 @@ public:
 
 protected:
 	std::fstream file_;
-	int data_size_;
+	dword data_size_;
 
 };
 
