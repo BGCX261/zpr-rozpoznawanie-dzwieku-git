@@ -25,6 +25,7 @@ public:
 	SimpleBuffer(const T* data, unsigned int count, size_t elSize=sizeof(T)) throw(...); /// constructor that allows to set buffer content. elSize may be used to fix "cutting" problem - when size of T is less than real object size pointed by "data". May throw bad_alloc
 	
 	inline const CONTAINER&		get() const throw(...); /// gets const reference (read only) to the container. May throw bad_alloc
+	inline CONTAINER&			getWritable() throw(...); /// gets writable reference to the container. May throw bad_alloc
 	void						set(const T* data, unsigned int count, size_t elSize=sizeof(T)) throw(...); /// allows to set buffer content. elSize may be used to fix "cutting" problem - when size of T is less than real object size pointed by "data". May throw bad_alloc
 
 	inline unsigned int			getSize() const throw(); /// returns number of elements
