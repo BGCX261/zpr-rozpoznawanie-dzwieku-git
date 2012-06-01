@@ -31,17 +31,20 @@ public:
 	static const char * wav_description_value_;
 	static const char * wav_data_id_value_;
 
-	WaveReader() {}
+	WaveReader() : data_size_(0), channels_(0), sample_rate_(0) {}
+	WaveReader(const std::string& file) 
+		: data_size_(0), channels_(0), sample_rate_(0) { openFile(file); }
 	virtual ~WaveReader() { closeFile(); }
 
 	virtual void readTo(const AudioSample& buffer);
-	void openFile(std::string file);
+	void openFile(const std::string& file);
 	void closeFile();
 
 protected:
 	std::fstream file_;
 	dword data_size_;
-
+	dword sample_rate_;
+	word channels_;
 };
 
 }; //namespace

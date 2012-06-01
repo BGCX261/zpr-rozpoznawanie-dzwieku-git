@@ -21,10 +21,12 @@ const char * WaveReader::wav_format_id_value_ = "WAVE";
 const char * WaveReader::wav_description_value_ = "fmt ";
 const char * WaveReader::wav_data_id_value_ = "data";
 
-void WaveReader::openFile(std::string file) 
+void WaveReader::openFile(const std::string& file)
 {
+	if (file_.is_open())
+		file_.close();
 	file_ = std::fstream(file, std::ios::in | std::ios::binary);
-	if (file_.fail()) 
+	if (file_.fail())
 	{
 		throw std::runtime_error("Opening file failed.");
 	}
@@ -33,7 +35,7 @@ void WaveReader::openFile(std::string file)
 
 	// Varbiable names correspond to WAV file header names.
 	byte id[size], format[size], description[size], data_indicator[size];
-	dword file_size, format_length, sample_rate, avg_bytes_per_sec;
+	dword file_size, format_length, sample_rate, avg_bytes_per_sec, data_size;
 	word format_tag, channels, block_align, bits_per_sample;
 
 	file_.read(id, sizeof(byte) * 4);
@@ -81,9 +83,16 @@ void WaveReader::openFile(std::string file)
 						throw std::runtime_error("Bad file structure - no 'data' section");
 				}
 
-				file_.read((char *)&data_size_, sizeof(dword));
-				if (data_size_ < 0)
+				file_.read((char *)&data_size, sizeof(dword));
+				if (data_size < 0)
 					throw std::runtime_error("Bad file structure - 'data size' is not positive");
+				else
+				{
+					// we can set WaveReader object
+					data_size_ = data_size;
+					sample_rate_ = sample_rate;
+					channels_ = channels;
+				}
 			}
 			else
 				throw std::runtime_error("Bad file structure - bad 'description' value");
@@ -97,10 +106,19 @@ void WaveReader::openFile(std::string file)
 
 void WaveReader::closeFile() 
 {
-	// TODO
+	if (file_.is_open())
+		file_.close();
 }
 
 void WaveReader::readTo(const AudioSample& buffer) 
 {
-	// TODO
+	if (file_.is_open())
+	{
+		// TODO
+		;
+	}
+	else
+	{
+		throw std::logic_error("Tried to read from file which isn't opened");
+	}
 }
