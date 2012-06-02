@@ -10,56 +10,16 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\learn\src\learningSetReader.cpp" />
-    <ClCompile Include="..\learn\src\teacher.cpp" />
-    <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\media\src\fft.cpp" />
-    <ClCompile Include="..\media\src\fftSampleBuilder.cpp" />
-    <ClCompile Include="..\media\src\soundReader.cpp" />
-    <ClCompile Include="..\media\src\waveReader.cpp" />
-    <ClCompile Include="..\myApp.cpp" />
-    <ClCompile Include="..\neur\src\network.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\neur\src\neuron.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="..\stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\learn\include\learningSet.h" />
-    <ClInclude Include="..\learn\include\learningSetReader.h" />
-    <ClInclude Include="..\learn\include\teacher.h" />
-    <ClInclude Include="..\media\include\audioSample.h" />
-    <ClInclude Include="..\media\include\fft.h" />
-    <ClInclude Include="..\media\include\fftSampleBuilder.h" />
-    <ClInclude Include="..\media\include\fftSample.h" />
-    <ClInclude Include="..\media\include\simpleBuffer.h" />
-    <ClInclude Include="..\media\include\simpleBufferImpl.h" />
-    <ClInclude Include="..\media\include\soundReader.h" />
-    <ClInclude Include="..\media\include\waveReader.h" />
-    <ClInclude Include="..\myApp.h" />
-    <ClInclude Include="..\neur\include\baseLayer.h" />
-    <ClInclude Include="..\neur\include\hiddenLayer.h" />
-    <ClInclude Include="..\neur\include\inputLayer.h" />
-    <ClInclude Include="..\neur\include\network.h" />
-    <ClInclude Include="..\neur\include\neuron.h" />
-    <ClInclude Include="..\neur\include\outputLayer.h" />
-    <ClInclude Include="..\stdafx.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3861E7AC-B29C-4300-A4F8-D56D69D9C90C}</ProjectGuid>
+    <ProjectGuid>{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ZPR</RootNamespace>
+    <RootNamespace>TestTemplate</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -79,20 +39,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\boost_1_46_1;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\boost_1_46_1;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../learn/include;../neur/include;../media/include;../contrib/fftw-3.3.1/api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <AdditionalIncludeDirectories>../../learn/include;../../neur/include;../../media/include;../../contrib/fftw-3.3.1/api;C:\boost_1_46_1;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -103,12 +61,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../learn/include;../neur/include;../media/include;../contrib/fftw-3.3.1/api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../learn/include;../../neur/include;../../media/include;../../contrib/fftw-3.3.1/api;C:\boost_1_46_1;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,6 +77,12 @@
       <AdditionalLibraryDirectories>C:\boost_1_46_1\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TestTemplate.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
