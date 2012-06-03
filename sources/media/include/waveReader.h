@@ -39,6 +39,9 @@ public:
 	virtual void readTo(const AudioSample& buffer);
 	void openFile(const std::string& file);
 	void closeFile();
+	dword get_data_size() const;
+	dword get_sample_rate() const;
+	word get_channels() const;
 
 protected:
 	std::fstream file_;

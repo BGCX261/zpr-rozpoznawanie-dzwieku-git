@@ -122,3 +122,18 @@ void WaveReader::readTo(const AudioSample& buffer)
 		throw std::logic_error("Tried to read from file which isn't opened");
 	}
 }
+
+WaveReader::dword WaveReader::get_data_size() const
+{
+	return data_size_;
+}
+
+WaveReader::dword WaveReader::get_sample_rate() const
+{
+	return sample_rate_;
+}
+
+WaveReader::word WaveReader::get_channels() const
+{
+	return channels_;
+}
