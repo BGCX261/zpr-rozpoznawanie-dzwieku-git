@@ -14,6 +14,7 @@
 #include "fftw3.h"
 
 using namespace media;
+using namespace std;
 
 FFT* FFT::instance_;
 
@@ -50,4 +51,10 @@ void FFT::deinitialize() throw()
 		delete instance_;
 		instance_ = NULL;
 	}
+}
+
+
+auto_ptr<FFTSample> calculateFFT(const AudioSample& audio) throw(...)
+{
+	return auto_ptr<FFTSample>(new FFTSample); //TODO
 }
