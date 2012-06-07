@@ -6,15 +6,19 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\tests\TestTemplate\TestTemplate.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}</ProjectGuid>
-    <RootNamespace>neurTest</RootNamespace>
+    <ProjectGuid>{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>TestTemplate</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -24,27 +28,25 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">
+    <LinkIncremental>true</LinkIncremental>
     <IncludePath>D:\Documents and Settings\Skipi\Pulpit\ZPR_Projekt\boost;$(IncludePath)</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">
-    <LibraryPath>.;D:\Documents and Settings\Skipi\Pulpit\ZPR_Projekt\boost\stage\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\Documents and Settings\Skipi\Pulpit\ZPR_Projekt\boost\stage\lib;.;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../neur/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../learn/include;../../neur/include;../../media/include;../../contrib/fftw-3.3.1/api;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\tests\neurTest\neurTest.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\tests\neurTest\neurTest.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

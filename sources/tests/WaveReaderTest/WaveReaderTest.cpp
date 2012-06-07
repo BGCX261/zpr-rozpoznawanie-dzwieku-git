@@ -1,5 +1,4 @@
-/*
-#define BOOST_TEST_MODULE wave_reader test
+#define BOOST_TEST_MODULE wave_reader_test
 #include <boost/test/unit_test.hpp>
 #include "waveReader.h"
 
@@ -11,9 +10,4 @@ BOOST_AUTO_TEST_CASE(test_default_initialization)
 	BOOST_CHECK_EQUAL(reader.get_data_size(), 0);
 	BOOST_CHECK_EQUAL(reader.get_sample_rate(), 0);
 	BOOST_CHECK_EQUAL(reader.get_channels(), 0);
-}
-*/
-int main()
-{
-	return 0;
 }

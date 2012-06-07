@@ -5,32 +5,44 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZPR", "ZPR.vcxproj", "{3861
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "neurTest", "neurTest\neurTest.vcxproj", "{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestTemplate", "..\tests\TestTemplate\TestTemplate.vcxproj", "{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestTemplate", "TestTemplate\TestTemplate.vcxproj", "{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WaveReaderTest", "..\tests\WaveReaderTest\WaveReaderTest.vcxproj", "{516CFB5F-094A-40D6-B42F-E6897936D9A2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WaveReaderTest", "WaveReaderTest\WaveReaderTest.vcxproj", "{516CFB5F-094A-40D6-B42F-E6897936D9A2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3861E7AC-B29C-4300-A4F8-D56D69D9C90C} = {3861E7AC-B29C-4300-A4F8-D56D69D9C90C}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
+		Tests|Win32 = Tests|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3861E7AC-B29C-4300-A4F8-D56D69D9C90C}.Debug|Win32.ActiveCfg = Debug|Win32
 		{3861E7AC-B29C-4300-A4F8-D56D69D9C90C}.Debug|Win32.Build.0 = Debug|Win32
 		{3861E7AC-B29C-4300-A4F8-D56D69D9C90C}.Release|Win32.ActiveCfg = Release|Win32
 		{3861E7AC-B29C-4300-A4F8-D56D69D9C90C}.Release|Win32.Build.0 = Release|Win32
-		{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}.Debug|Win32.ActiveCfg = Debug|Win32
-		{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}.Debug|Win32.Build.0 = Debug|Win32
-		{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}.Release|Win32.ActiveCfg = Release|Win32
-		{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}.Release|Win32.Build.0 = Release|Win32
-		{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}.Debug|Win32.ActiveCfg = Debug|Win32
-		{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}.Debug|Win32.Build.0 = Debug|Win32
-		{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}.Release|Win32.ActiveCfg = Release|Win32
-		{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}.Release|Win32.Build.0 = Release|Win32
-		{516CFB5F-094A-40D6-B42F-E6897936D9A2}.Debug|Win32.ActiveCfg = Debug|Win32
-		{516CFB5F-094A-40D6-B42F-E6897936D9A2}.Debug|Win32.Build.0 = Debug|Win32
-		{516CFB5F-094A-40D6-B42F-E6897936D9A2}.Release|Win32.ActiveCfg = Release|Win32
-		{516CFB5F-094A-40D6-B42F-E6897936D9A2}.Release|Win32.Build.0 = Release|Win32
+		{3861E7AC-B29C-4300-A4F8-D56D69D9C90C}.Tests|Win32.ActiveCfg = Tests|Win32
+		{3861E7AC-B29C-4300-A4F8-D56D69D9C90C}.Tests|Win32.Build.0 = Tests|Win32
+		{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}.Debug|Win32.ActiveCfg = Tests|Win32
+		{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}.Debug|Win32.Build.0 = Tests|Win32
+		{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}.Release|Win32.ActiveCfg = Tests|Win32
+		{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}.Release|Win32.Build.0 = Tests|Win32
+		{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}.Tests|Win32.ActiveCfg = Tests|Win32
+		{090C5E08-3FC5-4432-B4CD-F5DFBD1349E9}.Tests|Win32.Build.0 = Tests|Win32
+		{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}.Debug|Win32.ActiveCfg = Tests|Win32
+		{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}.Debug|Win32.Build.0 = Tests|Win32
+		{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}.Release|Win32.ActiveCfg = Tests|Win32
+		{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}.Release|Win32.Build.0 = Tests|Win32
+		{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}.Tests|Win32.ActiveCfg = Tests|Win32
+		{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}.Tests|Win32.Build.0 = Tests|Win32
+		{516CFB5F-094A-40D6-B42F-E6897936D9A2}.Debug|Win32.ActiveCfg = Tests|Win32
+		{516CFB5F-094A-40D6-B42F-E6897936D9A2}.Debug|Win32.Build.0 = Tests|Win32
+		{516CFB5F-094A-40D6-B42F-E6897936D9A2}.Release|Win32.ActiveCfg = Tests|Win32
+		{516CFB5F-094A-40D6-B42F-E6897936D9A2}.Release|Win32.Build.0 = Tests|Win32
+		{516CFB5F-094A-40D6-B42F-E6897936D9A2}.Tests|Win32.ActiveCfg = Tests|Win32
+		{516CFB5F-094A-40D6-B42F-E6897936D9A2}.Tests|Win32.Build.0 = Tests|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

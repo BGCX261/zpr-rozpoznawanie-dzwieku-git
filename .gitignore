@@ -8,3 +8,9 @@
 /sources/VS2010/ZPR.opensdf
 /sources/VS2010/ZPR.sdf
 /sources/VS2010/ipch
+/boost
+/doc/html
+/sources/VS2010/TestTemplate/Tests
+/sources/VS2010/WaveReaderTest/Tests
+/sources/VS2010/Tests
+/sources/VS2010/neurTest/Tests

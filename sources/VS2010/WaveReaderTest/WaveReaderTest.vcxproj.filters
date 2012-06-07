@@ -11,7 +11,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TestTemplate.cpp">
+    <ClCompile Include="..\..\tests\WaveReaderTest\WaveReaderTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
