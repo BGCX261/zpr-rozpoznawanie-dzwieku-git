@@ -145,5 +145,8 @@
     <ClInclude Include="..\media\include\simpleBufferImpl.h">
       <Filter>media\Header Files\buffers</Filter>
     </ClInclude>
+    <ClInclude Include="..\neur\include\resultSet.h">
+      <Filter>neur\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -8,3 +8,10 @@
 
 #include "stdafx.h"
 #include "myApp.h"
+
+const neur::ResultSet<> MyApp::doCategorizeFile(const std::string& filePath) throw(...)
+{
+	neur::ResultSet<> results;
+
+	return results;
+}

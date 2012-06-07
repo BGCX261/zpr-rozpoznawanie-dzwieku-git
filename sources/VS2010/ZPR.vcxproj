@@ -57,6 +57,7 @@
     <ClInclude Include="..\neur\include\network.h" />
     <ClInclude Include="..\neur\include\neuron.h" />
     <ClInclude Include="..\neur\include\outputLayer.h" />
+    <ClInclude Include="..\neur\include\resultSet.h" />
     <ClInclude Include="..\stdafx.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

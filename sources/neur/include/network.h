@@ -16,6 +16,7 @@
 #include <list>
 #include <memory> // for auto_ptr
 #include "baseLayer.h"
+#include "resultSet.h"
 
 namespace neur /// neural network namespace
 {
