@@ -9,7 +9,17 @@
 #include "stdafx.h"
 #include "myApp.h"
 
-const neur::ResultSet<> MyApp::doCategorizeFile(const std::string& filePath) throw(...)
+using namespace std;
+
+
+void MyApp::doLearn(const binary_function<float, const exception&, bool>& progressCallback) throw()
+{
+	teacher_.doLearn(learningSetsFolder_, progressCallback, neuralNetwork_);
+}
+
+
+
+const neur::ResultSet<> MyApp::doCategorizeFile(const string& filePath) throw(...)
 {
 	neur::ResultSet<> results;
 

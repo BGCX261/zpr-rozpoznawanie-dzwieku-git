@@ -10,19 +10,35 @@
 #ifndef __MY_APP_H__
 #define __MY_APP_H__
 
+#include <string>
+#include <exception>
 #include <boost\smart_ptr\shared_ptr.hpp>
-#include "neur\include\network.h"
+#include "neuralNetwork.h"
+#include "teacher.h"
 
 class MyApp
 {
+private:
+	MyApp() {}; /// private constructor for a singleton use
+	MyApp(const MyApp&); /// private copy constructor for a singleton use
+
 public:
+	static MyApp& getInstance() /// get instance to the singleton
+	{
+		static MyApp instance;
+		return instance;
+	}
+
 	void setLearningSetsFolder(const std::string& learningSetsFolder) throw() { learningSetsFolder_ = learningSetsFolder; } /// sets folder from which to read learning sets
-	
+	void doLearn(const std::binary_function<float, const std::exception&, bool>& progressCallback) throw(...); /// starts learning process using current set folder with learning sets. Non-blocking (another thread) - raporting learning progress through callback
+	bool abortLearning() throw() { return teacher_.abortLearning(); }; /// aborts learning process. Returns true if process was stopped, false if learning was not in progress
+
 	const neur::ResultSet<> doCategorizeFile(const std::string& filePath) throw(...); /// examines sound sample from file with learned neural network
 
 protected:
-	std::string							learningSetsFolder_; /// path to a folder with lerning sets
-	boost::shared_ptr<neur::Network>	neuralNetwork_; /// pointer to learned neural network
+	std::string								learningSetsFolder_; /// path to a folder with learning sets
+	learn::Teacher							teacher_; /// class controlling learning process
+	boost::shared_ptr<neur::NeuralNetwork>	neuralNetwork_; /// pointer to learned neural network
 };
 
 #endif

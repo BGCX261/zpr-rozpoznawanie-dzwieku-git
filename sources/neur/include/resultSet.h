@@ -18,7 +18,7 @@
 
 namespace neur
 {
-	class Network;
+	class NeuralNetwork;
 
 /// Class representing results of sample catogirization done by neural network
 template <typename LABEL=std::string>
@@ -41,7 +41,7 @@ public:
 protected:
 	std::map<LABEL, float> results_;
 
-friend class neur::Network; /// giving direct access to members for the friend class
+friend class neur::NeuralNetwork; /// giving direct access to members for the friend class
 };
 
 }; //namespace

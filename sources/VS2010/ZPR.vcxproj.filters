@@ -53,9 +53,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\neur\src\network.cpp">
-      <Filter>neur\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\neur\src\neuron.cpp">
       <Filter>neur\Source Files</Filter>
     </ClCompile>
@@ -86,11 +83,11 @@
     <ClCompile Include="..\media\src\fftSampleBuilder.cpp">
       <Filter>media\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\neur\src\neuralNetwork.cpp">
+      <Filter>neur\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\neur\include\network.h">
-      <Filter>neur\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\neur\include\neuron.h">
       <Filter>neur\Header Files</Filter>
     </ClInclude>
@@ -146,6 +143,9 @@
       <Filter>media\Header Files\buffers</Filter>
     </ClInclude>
     <ClInclude Include="..\neur\include\resultSet.h">
+      <Filter>neur\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\neur\include\neuralNetwork.h">
       <Filter>neur\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

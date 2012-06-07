@@ -1,6 +1,6 @@
 #define BOOST_TEST_MODULE neural_network_test
 #include <boost/test/unit_test.hpp>
-#include "network.h"
+#include "neuralNetwork.h"
 
 using namespace neur;
 

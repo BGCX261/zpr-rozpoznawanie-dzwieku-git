@@ -25,7 +25,7 @@
     <ClCompile Include="..\media\src\soundReader.cpp" />
     <ClCompile Include="..\media\src\waveReader.cpp" />
     <ClCompile Include="..\myApp.cpp" />
-    <ClCompile Include="..\neur\src\network.cpp">
+    <ClCompile Include="..\neur\src\neuralNetwork.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Use</PrecompiledHeader>
     </ClCompile>
@@ -54,7 +54,7 @@
     <ClInclude Include="..\neur\include\baseLayer.h" />
     <ClInclude Include="..\neur\include\hiddenLayer.h" />
     <ClInclude Include="..\neur\include\inputLayer.h" />
-    <ClInclude Include="..\neur\include\network.h" />
+    <ClInclude Include="..\neur\include\neuralNetwork.h" />
     <ClInclude Include="..\neur\include\neuron.h" />
     <ClInclude Include="..\neur\include\outputLayer.h" />
     <ClInclude Include="..\neur\include\resultSet.h" />

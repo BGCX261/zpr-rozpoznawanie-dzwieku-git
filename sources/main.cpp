@@ -13,12 +13,15 @@
 #include "stdafx.h"
 #include <iostream>
 
-#include "waveReader.h"
+#include "myApp.h"
 
 using namespace std;
 
 int main()
 {
+	MyApp& myApp = MyApp::getInstance();
+	myApp.setLearningSetsFolder("sounds");
+
 	cout << "EiTI, Politechnika Warszawska, ZPR 2012L" << endl;
 	cout << endl;
 	cout << "Projekt pod kierownictwem dr inz. Rafala Biedrzyckiego:" << endl;

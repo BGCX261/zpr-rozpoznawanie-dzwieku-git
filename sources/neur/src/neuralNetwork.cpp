@@ -10,6 +10,6 @@
 /// Maciej Sikora
 
 #include "stdafx.h"
-#include "network.h"
+#include "neuralNetwork.h"
 
 using namespace neur;
