@@ -34,8 +34,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Documents and Settings\Skipi\Pulpit\ZPR_Projekt\boost;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Documents and Settings\Skipi\Pulpit\ZPR_Projekt\boost\stage\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">
     <ClCompile>
