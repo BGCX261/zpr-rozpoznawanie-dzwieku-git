@@ -14,3 +14,6 @@
 /sources/VS2010/WaveReaderTest/Tests
 /sources/VS2010/Tests
 /sources/VS2010/neurTest/Tests
+*.exe
+*.ilk
+*.pdb

@@ -9,6 +9,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\tests\TestTemplate\TestTemplate.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZPR.vcxproj">
+      <Project>{3861e7ac-b29c-4300-a4f8-d56d69d9c90c}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D3FD7D2C-1A2B-435D-B99A-7FF90B7AFF80}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -31,6 +36,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <OutDir>../../../</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">
     <ClCompile>

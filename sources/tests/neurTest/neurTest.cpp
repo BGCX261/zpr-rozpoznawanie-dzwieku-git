@@ -1,12 +1,9 @@
-/** 
-* @file
-* Implementation of NeurTest class - unit tests of neural network module
-*/
-
-/// Lukasz Rychter
-/// Maciej Sikora
-
-#include "neurTest.h"
+#define BOOST_TEST_MODULE neural_network_test
+#include <boost/test/unit_test.hpp>
 #include "network.h"
 
 using namespace neur;
+
+BOOST_AUTO_TEST_CASE(test_default_initialization)
+{
+}
