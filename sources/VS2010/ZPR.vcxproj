@@ -54,6 +54,7 @@
     <ClInclude Include="..\neur\include\baseLayer.h" />
     <ClInclude Include="..\neur\include\hiddenLayer.h" />
     <ClInclude Include="..\neur\include\inputLayer.h" />
+    <ClInclude Include="..\neur\include\mygetch.h" />
     <ClInclude Include="..\neur\include\neuralNetwork.h" />
     <ClInclude Include="..\neur\include\neuron.h" />
     <ClInclude Include="..\neur\include\outputLayer.h" />

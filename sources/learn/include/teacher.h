@@ -14,25 +14,32 @@
 
 #include <string>
 #include <exception>
+#include <boost\function.hpp>
 #include <boost\thread.hpp>
 #include "neuralNetwork.h"
 
 namespace learn /// namespace for learning process modules
 {
 
+typedef const boost::function<void(float progress, const std::exception* e)>&		progress_callback; /// progress is in %. e == NULL when there is no error.
+
 class Teacher
 {
 public:
-	Teacher() : stopFlag_(false) {}
+	Teacher() : abortFlag_(false), learningDone_(false) {}
 
-	void doLearn(const std::string& learningSetsFolder, const std::binary_function<float, const std::exception&, void>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork); /// starts learning process using given folder with learning sets. Non-blocking (another thread) - raporting learning progress through callback
+	void doLearn(const std::string& learningSetsFolder, learn::progress_callback progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork); /// starts learning process using given folder with learning sets. Non-blocking (another thread) - raporting learning progress through callback
 	bool abortLearning() throw(); /// aborts learning process. Returns true if process was stopped, false if learning was not in progress
+	void waitTillLearning() throw() { thread_.join(); } /// will block till learning process is in progress
+	bool isLearningDone() const throw() { return learningDone_; } /// returns learning done flag
+	bool wasLearningAborted() const throw() { return abortFlag_; } /// returns learning done flag
 
 protected:
-	void learningThread(const std::binary_function<float, const std::exception&, void>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork);
+	void learningThread(learn::progress_callback progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork); /// function of thread doing learning process
 
-	boost::thread thread_;
-	volatile bool stopFlag_;
+	boost::thread	thread_;	/// thread in which learning will be done
+	volatile bool	abortFlag_;	/// flag to stop learning process
+	volatile bool	learningDone_; /// flag indicating if learning ended successfully
 };
 
 }; //namespace

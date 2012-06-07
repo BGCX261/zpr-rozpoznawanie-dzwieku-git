@@ -23,13 +23,23 @@ int main()
 	MyApp& myApp = MyApp::getInstance();
 	myApp.setLearningSetsFolder("sounds");
 	
-	const boost::function<void(float, const std::exception&)>& callback = boost::bind(&MyApp::learnCallback, &myApp, _1, _2);
-	myApp.doLearn(callback);
-
-#ifdef _WIN32
-	cout << endl << endl;
-	system("PAUSE");
-#endif
+	try
+	{
+		myApp.doLearn(boost::bind(&MyApp::learnCallback, &myApp, _1, _2));
+		myApp.waitTillLearning();
+	}
+	catch (std::exception& e)
+	{
+		cout << endl 
+			 << "main(): Exception occured in learning process - \"" << e.what() << "\"" 
+			 << endl;
+	}
+	catch(...)
+	{
+			cout << endl 
+			 << "main(): Unknown exception occured in learning process" 
+			 << endl;
+	}
 
 	return 0;
 }

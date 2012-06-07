@@ -15,11 +15,12 @@ using namespace learn;
 using namespace std;
 
 
-void Teacher::doLearn(const string& learningSetsFolder, const std::binary_function<float, const std::exception&, void>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork)
+void Teacher::doLearn(const string& learningSetsFolder, learn::progress_callback progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork)
 {
 	abortLearning(); /// stops current learning process, if any
 
-	stopFlag_ = false;
+	learningDone_= false;
+	abortFlag_ = false;
 	thread_ = boost::thread(&Teacher::learningThread, this, progressCallback, neuralNetwork);
 }
 
@@ -30,17 +31,38 @@ bool Teacher::abortLearning() throw()
 		return false; /// thread is not running
 	else
 	{
-		stopFlag_ = true;
+		abortFlag_ = true;
 		thread_.join();
 		return true;
 	}
 }
 
 
-void Teacher::learningThread(const std::binary_function<float, const std::exception&, void>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork)
+void Teacher::learningThread(learn::progress_callback progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork)
 {
-	while (!stopFlag_)
-	{
+	float progress = 0;
 
+	try
+	{
+		progressCallback(progress, NULL);
+
+		while (!abortFlag_ && progress < 100)
+		{
+			boost::this_thread::sleep(boost::posix_time::milliseconds(50));//TMP!
+			++progress;
+			progressCallback(progress, NULL);
+		}
+		
+		if (progress == 100)
+			learningDone_ = true;
+	}
+	catch (std::exception& e)
+	{
+		progressCallback(progress, &e);
+	}
+	catch(...)
+	{
+		std::bad_exception e;
+		progressCallback(progress, &e);
 	}
 }
