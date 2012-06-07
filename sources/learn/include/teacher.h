@@ -25,11 +25,11 @@ class Teacher
 public:
 	Teacher() : stopFlag_(false) {}
 
-	void doLearn(const std::string& learningSetsFolder, const std::binary_function<float, const std::exception&, bool>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork); /// starts learning process using given folder with learning sets. Non-blocking (another thread) - raporting learning progress through callback
+	void doLearn(const std::string& learningSetsFolder, const std::binary_function<float, const std::exception&, void>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork); /// starts learning process using given folder with learning sets. Non-blocking (another thread) - raporting learning progress through callback
 	bool abortLearning() throw(); /// aborts learning process. Returns true if process was stopped, false if learning was not in progress
 
 protected:
-	void learningThread(const std::binary_function<float, const std::exception&, bool>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork);
+	void learningThread(const std::binary_function<float, const std::exception&, void>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork);
 
 	boost::thread thread_;
 	volatile bool stopFlag_;

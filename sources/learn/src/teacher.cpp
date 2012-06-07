@@ -15,7 +15,7 @@ using namespace learn;
 using namespace std;
 
 
-void Teacher::doLearn(const string& learningSetsFolder, const binary_function<float, const std::exception&, bool>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork)
+void Teacher::doLearn(const string& learningSetsFolder, const std::binary_function<float, const std::exception&, void>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork)
 {
 	abortLearning(); /// stops current learning process, if any
 
@@ -37,7 +37,7 @@ bool Teacher::abortLearning() throw()
 }
 
 
-void Teacher::learningThread(const binary_function<float, const std::exception&, bool>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork)
+void Teacher::learningThread(const std::binary_function<float, const std::exception&, void>& progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork)
 {
 	while (!stopFlag_)
 	{

@@ -12,6 +12,7 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <boost\bind.hpp>
 
 #include "myApp.h"
 
@@ -21,15 +22,9 @@ int main()
 {
 	MyApp& myApp = MyApp::getInstance();
 	myApp.setLearningSetsFolder("sounds");
-
-	cout << "EiTI, Politechnika Warszawska, ZPR 2012L" << endl;
-	cout << endl;
-	cout << "Projekt pod kierownictwem dr inz. Rafala Biedrzyckiego:" << endl;
-	cout << endl;
-	cout << "\tRozpoznawanie dzwiekow gitarowych na podstawie ich widma" << endl;
-	cout << "\tAlgorytm indukcji klasyfikatora bazujacy na sieci neuronowej" << endl;
-	cout << endl;
-	cout << "Autorzy: Lukasz Rychter, Maciej Sikora" << endl;
+	
+	const boost::function<void(float, const std::exception&)>& callback = boost::bind(&MyApp::learnCallback, &myApp, _1, _2);
+	myApp.doLearn(callback);
 
 #ifdef _WIN32
 	cout << endl << endl;

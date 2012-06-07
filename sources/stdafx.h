@@ -13,6 +13,10 @@
 #include <fstream>
 #include <list>
 #include <vector>
-#include <memory> // dla auto_ptr
+#include <map>
+#include <memory> // for auto_ptr
+#include <boost\bind.hpp>
+#include <boost\thread.hpp>
+#include <boost\smart_ptr\shared_ptr.hpp>
 
 #endif
