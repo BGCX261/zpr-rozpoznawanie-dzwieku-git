@@ -7,7 +7,70 @@ using namespace media;
 BOOST_AUTO_TEST_CASE(test_default_initialization)
 {
 	WaveReader reader;
+	BOOST_CHECK_EQUAL(reader.is_open(), false);
 	BOOST_CHECK_EQUAL(reader.get_data_size(), 0);
 	BOOST_CHECK_EQUAL(reader.get_sample_rate(), 0);
 	BOOST_CHECK_EQUAL(reader.get_channels(), 0);
+}
+
+BOOST_AUTO_TEST_CASE(test_object_after_open_file)
+{
+	WaveReader reader;
+	// TODO path
+	reader.openFile("D:/Moje dokumenty/ZPR/zpr-rozpoznawanie-dzwieku/sources/tests/WaveReaderTest/data/1.wav");
+	BOOST_CHECK_EQUAL(reader.is_open(), true);
+	
+	// Object fields must be properly set by now.
+	BOOST_CHECK_GT(reader.get_data_size(), 0);
+	BOOST_CHECK_GT(reader.get_sample_rate(), 0);
+	BOOST_CHECK_GT(reader.get_channels(), 0);
+}
+
+BOOST_AUTO_TEST_CASE(test_object_after_construction_with_file)
+{
+	// TODO path
+	WaveReader reader("D:/Moje dokumenty/ZPR/zpr-rozpoznawanie-dzwieku/sources/tests/WaveReaderTest/data/1.wav");
+	BOOST_CHECK_EQUAL(reader.is_open(), true);
+	
+	// Object fields must be properly set by now.
+	BOOST_CHECK_GT(reader.get_data_size(), 0);
+	BOOST_CHECK_GT(reader.get_sample_rate(), 0);
+	BOOST_CHECK_GT(reader.get_channels(), 0);
+}
+
+BOOST_AUTO_TEST_CASE(test_open_another_file)
+{
+	// TODO path
+	WaveReader reader("D:/Moje dokumenty/ZPR/zpr-rozpoznawanie-dzwieku/sources/tests/WaveReaderTest/data/1.wav");
+	int old_channels = reader.get_channels();
+	int old_data_size = reader.get_data_size();
+	int old_sample_rate = reader.get_sample_rate();
+	
+	// Load new file.
+	reader.openFile("D:/Moje dokumenty/ZPR/zpr-rozpoznawanie-dzwieku/sources/tests/WaveReaderTest/data/2.wav");
+	BOOST_CHECK_EQUAL(reader.is_open(), true);
+	int new_channels = reader.get_channels();
+	int new_data_size = reader.get_data_size();
+	int new_sample_rate = reader.get_sample_rate();
+
+	// Check if file has been changed.
+	BOOST_CHECK_EQUAL(reader.get_channels() != old_channels ||
+		reader.get_sample_rate() != old_sample_rate ||
+		reader.get_data_size() != old_data_size, true);
+}
+
+BOOST_AUTO_TEST_CASE(test_open_bad_file)
+{
+	WaveReader reader;
+	std::string fake_file("this/file/doesnt/exist");
+	BOOST_CHECK_THROW(reader.openFile(fake_file), std::runtime_error);
+}
+
+BOOST_AUTO_TEST_CASE(test_open_inappropriate_file)
+{
+	WaveReader reader;
+	// TODO path
+	std::string fake_file("D:/Moje dokumenty/ZPR/zpr-rozpoznawanie-dzwieku/sources/tests/WaveReaderTest/data/inappropriate.txt");
+	BOOST_CHECK_THROW(reader.openFile(fake_file), std::runtime_error);
+	BOOST_CHECK(reader.is_open());
 }

@@ -48,6 +48,8 @@ public:
 	/// Function reads WAV file - it skips WAV headers and provides
 	/// the object access to audio data.
 	void openFile(const std::string& file);
+	/// Cheks if object's file is open.
+	bool is_open() { return file_.is_open() ? true : false; }
 	/// Closes audio file.
 	void closeFile();
 	/// Gets size of read data.
