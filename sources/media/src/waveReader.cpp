@@ -129,7 +129,7 @@ void WaveReader::readTo(AudioSample& buffer, unsigned long audioTime)
 		{
 			// audioTime is in miliseconds
 			// (audioTime / 1000) * sample_rate_ * (bits_per_sample_ / 8)
-			bytes_to_process = audioTime * sample_rate_ * bits_per_sample_ / 8000;
+			bytes_to_process = audioTime * sample_rate_ * bits_per_sample_ * channels_ / 8000;
 			if (bytes_to_process > data_size_)
 				throw std::runtime_error("Audio file hasn't got such many samples");
 		}
