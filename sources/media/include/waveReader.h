@@ -29,10 +29,11 @@ public:
 	/// Double word type definition.
 	typedef unsigned int dword;
 
-	static const char * wav_id_value_;
-	static const char * wav_format_id_value_;
-	static const char * wav_description_value_;
-	static const char * wav_data_id_value_;
+	static const char*	wav_id_value_;
+	static const char*	wav_format_id_value_;
+	static const char*	wav_description_value_;
+	static const char*	wav_data_id_value_;
+	static const long	wav_pcm_format_tag;
 
 	/// Default constructor.
 	/// Initializes object without connecting it with a file.

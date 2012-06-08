@@ -16,10 +16,11 @@
 
 using namespace media;
 
-const char * WaveReader::wav_id_value_ = "RIFF";
-const char * WaveReader::wav_format_id_value_ = "WAVE";
-const char * WaveReader::wav_description_value_ = "fmt ";
-const char * WaveReader::wav_data_id_value_ = "data";
+const char* WaveReader::wav_id_value_ = "RIFF";
+const char* WaveReader::wav_format_id_value_ = "WAVE";
+const char* WaveReader::wav_description_value_ = "fmt ";
+const char* WaveReader::wav_data_id_value_ = "data";
+const long	WaveReader::wav_pcm_format_tag = 1;
 
 void WaveReader::openFile(const std::string& file)
 {
@@ -60,6 +61,10 @@ void WaveReader::openFile(const std::string& file)
 				file_.read((char *)&block_align, sizeof(word));
 				file_.read((char *)&bits_per_sample, sizeof(word));
 				file_.read(data_indicator, sizeof(byte) * 4);
+				
+				if (format_tag != wav_pcm_format_tag)
+					throw std::runtime_error("Unsupported WAV file format");
+
 				data_indicator[size - 1] = str_end;
 				if (strcmp(data_indicator, wav_data_id_value_))
 				{ 
@@ -143,6 +148,9 @@ void WaveReader::readTo(AudioSample& buffer, unsigned long audioTime)
 			buffer.set((AudioSample::element_type*)buf.get(), samples);
 		else
 			throw std::runtime_error("Audio file has got unsupported bits per sample number"); //TODO - resize samples instead of throwing the error
+
+		buffer.setSampleRate(sample_rate_);
+		buffer.setChannels(channels_);
 	}
 	else
 		throw std::logic_error("Tried to read from file which isn't opened");

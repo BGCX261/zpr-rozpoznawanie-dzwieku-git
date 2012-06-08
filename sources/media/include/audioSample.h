@@ -2,7 +2,8 @@
 * @file
 * Declaration of AudioSample class
 *
-* It represents sample of raw audio data (mono)
+* It represents sample of raw audio data \n
+* If it if multichannel data then it is in form ch1 ch2 ch1 ch2 ...
 */
 
 /// Lukasz Rychter
@@ -27,12 +28,16 @@ public:
 
 	virtual void	set(const unsigned short* data, unsigned int count) throw(...); /// allows to set buffer content. May throw bad_alloc
 	
-	void			setSampleRate(unsigned int sampleRate) { sampleRate_ = sampleRate; } /// sets sampling rate
+	void			setSampleRate(unsigned int sampleRate) throw() { sampleRate_ = sampleRate; } /// sets sampling rate
 	unsigned int	getSampleRate() const throw() { return sampleRate_; } /// returns sampling rate
+
+	void			setChannels(unsigned short channels) throw() { channels_ = channels; } /// sets number of channels of audio
+	unsigned short	getChannels() const throw() { return channels_; } /// returns number of channels of audio
 	
 
 protected:
-	unsigned short sampleRate_;
+	unsigned short	sampleRate_;	/// sampling rate
+	unsigned short	channels_;		/// number of channels of audio
 };
 
 }; //namespace

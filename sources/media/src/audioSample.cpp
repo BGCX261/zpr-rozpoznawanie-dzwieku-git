@@ -2,7 +2,8 @@
 * @file
 * Implementation of AudioSample class
 * 
-* It represents sample of raw audio data (mono)
+* It represents sample of raw audio data \n
+* If it if multichannel data then it is in form ch1 ch2 ch1 ch2 ...
 */
 
 /// Lukasz Rychter
@@ -19,7 +20,7 @@ unsigned int AudioSample::getLength() const throw(...)
 	if (samplesNum == 0)
 		throw std::out_of_range("Sampling rate is not set");
 
-	return getSize() * 1000 / sampleRate_; 
+	return getSize() * 1000 / sampleRate_ / channels_; 
 } 
 
 

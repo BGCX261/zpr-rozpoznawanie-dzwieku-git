@@ -93,5 +93,12 @@ BOOST_AUTO_TEST_CASE(test_data_correctness)
 	BOOST_CHECK_EQUAL(buffer.get().front(), 0x1234);
 	BOOST_CHECK_EQUAL(buffer.get()[1000], 0); // some random position inside
 	BOOST_CHECK_EQUAL(buffer.get().back(), 0x4321);
-	getchar();
 }
+
+#ifdef _WIN32
+BOOST_AUTO_TEST_CASE(wait)
+{
+	std::cout << std::endl;
+	system("PAUSE");
+}
+#endif
