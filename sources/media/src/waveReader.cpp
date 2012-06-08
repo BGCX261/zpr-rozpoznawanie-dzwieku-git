@@ -122,13 +122,13 @@ void WaveReader::readTo(AudioSample& buffer, unsigned long audioTime)
 		throw std::runtime_error("Bad argument audioTime value");
 	else if (file_.is_open())
 	{
-		// audioTime is in miliseconds
-		// (audioTime / 1000) * sample_rate_ * (bits_per_sample_ / 8)
 		unsigned long bytes_to_process;
 		if (audioTime == 0)
 			bytes_to_process = data_size_;
 		else
 		{
+			// audioTime is in miliseconds
+			// (audioTime / 1000) * sample_rate_ * (bits_per_sample_ / 8)
 			bytes_to_process = audioTime * sample_rate_ * bits_per_sample_ / 8000;
 			if (bytes_to_process > data_size_)
 				throw std::runtime_error("Audio file hasn't got such many samples");
