@@ -17,7 +17,7 @@ namespace media /// namespace for media processing modules
 {
 
 /// Declaration of class template representing abstract data buffer
-template <typename T, class CONTAINER=std::vector<T> > /// CONTAINER may be STLs vector, deque, list, set, multiset, map, multimap or another compatible class template
+template <typename T, class CONTAINER=std::vector<T> > /// CONTAINER may be STL's vector, deque, list, set, multiset, map, multimap or another compatible class template
 class SimpleBuffer
 {
 public:
@@ -30,6 +30,10 @@ public:
 
 	inline unsigned int			getSize() const throw(); /// returns number of elements
 	inline void					clear() throw(); /// removes buffer contents
+
+	inline unsigned char		getElementSize() const throw() { return sizeof(T); }; /// returns size of the element
+
+	typedef T element_type;
 
 protected:
 	mutable std::auto_ptr<CONTAINER> buffer_;  /// mutable set because of get function

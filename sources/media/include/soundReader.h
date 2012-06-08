@@ -24,7 +24,7 @@ public:
 	SoundReader() {}
 	virtual ~SoundReader() {}
 
-	virtual void readTo(const AudioSample& buffer) = 0;
+	virtual void readTo(AudioSample& buffer, unsigned long audioTime=0) = 0;
 };
 
 }; //namespace

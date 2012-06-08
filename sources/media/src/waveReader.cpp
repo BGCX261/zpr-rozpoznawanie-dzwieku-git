@@ -111,20 +111,7 @@ void WaveReader::closeFile()
 		file_.close();
 }
 
-void WaveReader::readTo(const AudioSample& buffer) 
-{
-	if (file_.is_open())
-	{
-		// TODO
-		;
-	}
-	else
-	{
-		throw std::logic_error("Tried to read from file which isn't opened");
-	}
-}
-
-void WaveReader::readTo(const AudioSample& buffer, unsigned long audioTime)
+void WaveReader::readTo(AudioSample& buffer, unsigned long audioTime)
 {
 	if (audioTime < 0)
 		throw std::runtime_error("Bad argument audioTime value");
@@ -132,23 +119,30 @@ void WaveReader::readTo(const AudioSample& buffer, unsigned long audioTime)
 	{
 		// audioTime is in miliseconds
 		// (audioTime / 1000) * sample_rate_ * (bits_per_sample_ / 8)
-		unsigned long bytes_to_process = audioTime * sample_rate_ * bits_per_sample_ / 8000.0;
-		if (bytes_to_process > data_size_)
-			throw std::runtime_error("Audio file hasn't got such many samples");
-		
-		// TODO
-		// this method is very inefficient
-		// must be replaced by something better!
-		byte val;
-		for (int i = 0; i < bytes_to_process; ++i)
+		unsigned long bytes_to_process;
+		if (audioTime == 0)
+			bytes_to_process = data_size_;
+		else
 		{
-			file_.read(&val, sizeof(byte));
-			// TODO
-			// doesn't compile :(
-			// buffer.getWritable().push_back(val);
+			bytes_to_process = audioTime * sample_rate_ * bits_per_sample_ / 8000;
+			if (bytes_to_process > data_size_)
+				throw std::runtime_error("Audio file hasn't got such many samples");
 		}
-		// TODO
-		// file_ has to be seek back!
+
+	
+		std::auto_ptr<byte> buf(new byte[bytes_to_process]);
+		file_.read(buf.get(), bytes_to_process);
+		if (file_.eof())
+			throw std::out_of_range("Reached end of file before read desired length");
+		if (file_.bad())
+			throw std::runtime_error("Error while reading file");
+
+		unsigned long samples = bytes_to_process/(bits_per_sample_/8);
+
+		if (buffer.getElementSize() == bits_per_sample_/8)
+			buffer.set((AudioSample::element_type*)buf.get(), samples);
+		else
+			throw std::runtime_error("Audio file has got unsupported bits per sample number"); //TODO - resize samples instead of throwing the error
 	}
 	else
 		throw std::logic_error("Tried to read from file which isn't opened");

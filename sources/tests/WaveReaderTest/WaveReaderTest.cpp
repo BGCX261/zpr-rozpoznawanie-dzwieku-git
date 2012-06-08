@@ -21,10 +21,10 @@ BOOST_AUTO_TEST_CASE(test_object_after_open_file)
 	BOOST_CHECK_EQUAL(reader.is_open(), true);
 	
 	// Object fields must be properly set by now.
-	BOOST_CHECK_GT(reader.get_data_size(), 0);
-	BOOST_CHECK_GT(reader.get_sample_rate(), 0);
-	BOOST_CHECK_GT(reader.get_channels(), 0);
-	BOOST_CHECK_GT(reader.get_bits_per_sample(), 0);
+	BOOST_CHECK_GT(reader.get_data_size(), 0U);
+	BOOST_CHECK_GT(reader.get_sample_rate(), 0U);
+	BOOST_CHECK_GT(reader.get_channels(), 0U);
+	BOOST_CHECK_GT(reader.get_bits_per_sample(), 0U);
 }
 
 BOOST_AUTO_TEST_CASE(test_object_after_construction_with_file)
@@ -33,10 +33,10 @@ BOOST_AUTO_TEST_CASE(test_object_after_construction_with_file)
 	BOOST_CHECK_EQUAL(reader.is_open(), true);
 	
 	// Object fields must be properly set by now.
-	BOOST_CHECK_GT(reader.get_data_size(), 0);
-	BOOST_CHECK_GT(reader.get_sample_rate(), 0);
-	BOOST_CHECK_GT(reader.get_channels(), 0);
-	BOOST_CHECK_GT(reader.get_bits_per_sample(), 0);
+	BOOST_CHECK_GT(reader.get_data_size(), 0U);
+	BOOST_CHECK_GT(reader.get_sample_rate(), 0U);
+	BOOST_CHECK_GT(reader.get_channels(), 0U);
+	BOOST_CHECK_GT(reader.get_bits_per_sample(), 0U);
 }
 
 BOOST_AUTO_TEST_CASE(test_open_another_file)
@@ -75,4 +75,12 @@ BOOST_AUTO_TEST_CASE(test_open_inappropriate_file)
 	std::string fake_file("sources/tests/WaveReaderTest/data/inappropriate.txt");
 	BOOST_CHECK_THROW(reader.openFile(fake_file), std::runtime_error);
 	BOOST_CHECK(reader.is_open());
+}
+
+BOOST_AUTO_TEST_CASE(test_read_whole_file)
+{
+	WaveReader reader("sources/tests/WaveReaderTest/data/1.wav");
+	AudioSample buffer;
+	BOOST_CHECK_NO_THROW(reader.readTo(buffer));
+	BOOST_CHECK_THROW(reader.readTo(buffer), std::out_of_range); 
 }

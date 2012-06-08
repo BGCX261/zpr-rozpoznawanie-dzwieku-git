@@ -44,10 +44,9 @@ public:
 	/// Destructor.
 	virtual ~WaveReader() { closeFile(); }
 
-	virtual void readTo(const AudioSample& buffer);
 	/// Function reads audioTime miliseconds of audio data and writes it
-	/// to the passed buffer.
-	virtual void readTo(const AudioSample& buffer, unsigned long audioTime);
+	/// to the passed buffer. If audioTime is 0 (default) then it reads the whole file
+	virtual void readTo(AudioSample& buffer, unsigned long audioTime=0);
 	/// Function reads WAV file - it skips WAV headers and provides
 	/// the object access to audio data.
 	void openFile(const std::string& file);
