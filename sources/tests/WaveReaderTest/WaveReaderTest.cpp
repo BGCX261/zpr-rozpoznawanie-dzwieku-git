@@ -11,6 +11,7 @@ BOOST_AUTO_TEST_CASE(test_default_initialization)
 	BOOST_CHECK_EQUAL(reader.get_data_size(), 0);
 	BOOST_CHECK_EQUAL(reader.get_sample_rate(), 0);
 	BOOST_CHECK_EQUAL(reader.get_channels(), 0);
+	BOOST_CHECK_EQUAL(reader.get_bits_per_sample(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(test_object_after_open_file)
@@ -23,6 +24,7 @@ BOOST_AUTO_TEST_CASE(test_object_after_open_file)
 	BOOST_CHECK_GT(reader.get_data_size(), 0);
 	BOOST_CHECK_GT(reader.get_sample_rate(), 0);
 	BOOST_CHECK_GT(reader.get_channels(), 0);
+	BOOST_CHECK_GT(reader.get_bits_per_sample(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(test_object_after_construction_with_file)
@@ -34,6 +36,7 @@ BOOST_AUTO_TEST_CASE(test_object_after_construction_with_file)
 	BOOST_CHECK_GT(reader.get_data_size(), 0);
 	BOOST_CHECK_GT(reader.get_sample_rate(), 0);
 	BOOST_CHECK_GT(reader.get_channels(), 0);
+	BOOST_CHECK_GT(reader.get_bits_per_sample(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(test_open_another_file)
@@ -42,6 +45,7 @@ BOOST_AUTO_TEST_CASE(test_open_another_file)
 	int old_channels = reader.get_channels();
 	int old_data_size = reader.get_data_size();
 	int old_sample_rate = reader.get_sample_rate();
+	int old_bits_per_sample = reader.get_bits_per_sample();
 	
 	// Load new file.
 	reader.openFile("sources/tests/WaveReaderTest/data/2.wav");
@@ -49,11 +53,13 @@ BOOST_AUTO_TEST_CASE(test_open_another_file)
 	int new_channels = reader.get_channels();
 	int new_data_size = reader.get_data_size();
 	int new_sample_rate = reader.get_sample_rate();
+	int new_bits_per_sample = reader.get_bits_per_sample();
 
 	// Check if file has been changed.
 	BOOST_CHECK_EQUAL(reader.get_channels() != old_channels ||
 		reader.get_sample_rate() != old_sample_rate ||
-		reader.get_data_size() != old_data_size, true);
+		reader.get_data_size() != old_data_size ||
+		reader.get_bits_per_sample() != old_bits_per_sample, true);
 }
 
 BOOST_AUTO_TEST_CASE(test_open_bad_file)

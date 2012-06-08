@@ -92,6 +92,7 @@ void WaveReader::openFile(const std::string& file)
 					data_size_ = data_size;
 					sample_rate_ = sample_rate;
 					channels_ = channels;
+					bits_per_sample_ = bits_per_sample;
 				}
 			}
 			else
@@ -123,6 +124,36 @@ void WaveReader::readTo(const AudioSample& buffer)
 	}
 }
 
+void WaveReader::readTo(const AudioSample& buffer, unsigned long audioTime)
+{
+	if (audioTime < 0)
+		throw std::runtime_error("Bad argument audioTime value");
+	else if (file_.is_open())
+	{
+		// audioTime is in miliseconds
+		// (audioTime / 1000) * sample_rate_ * (bits_per_sample_ / 8)
+		unsigned long bytes_to_process = audioTime * sample_rate_ * bits_per_sample_ / 8000.0;
+		if (bytes_to_process > data_size_)
+			throw std::runtime_error("Audio file hasn't got such many samples");
+		
+		// TODO
+		// this method is very inefficient
+		// must be replaced by something better!
+		byte val;
+		for (int i = 0; i < bytes_to_process; ++i)
+		{
+			file_.read(&val, sizeof(byte));
+			// TODO
+			// doesn't compile :(
+			// buffer.getWritable().push_back(val);
+		}
+		// TODO
+		// file_ has to be seek back!
+	}
+	else
+		throw std::logic_error("Tried to read from file which isn't opened");
+}
+
 WaveReader::dword WaveReader::get_data_size() const
 {
 	return data_size_;
@@ -136,4 +167,9 @@ WaveReader::dword WaveReader::get_sample_rate() const
 WaveReader::word WaveReader::get_channels() const
 {
 	return channels_;
+}
+
+WaveReader::word WaveReader::get_bits_per_sample() const
+{
+	return bits_per_sample_;
 }
