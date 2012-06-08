@@ -82,5 +82,12 @@ BOOST_AUTO_TEST_CASE(test_read_whole_file)
 	WaveReader reader("sources/tests/WaveReaderTest/data/1.wav");
 	AudioSample buffer;
 	BOOST_CHECK_NO_THROW(reader.readTo(buffer));
+}
+
+BOOST_AUTO_TEST_CASE(test_read_after_reading)
+{
+	WaveReader reader("sources/tests/WaveReaderTest/data/1.wav");
+	AudioSample buffer;
+	BOOST_CHECK_NO_THROW(reader.readTo(buffer));
 	BOOST_CHECK_THROW(reader.readTo(buffer), std::out_of_range); 
 }
