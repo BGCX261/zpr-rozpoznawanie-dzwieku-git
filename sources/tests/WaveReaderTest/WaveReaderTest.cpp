@@ -84,3 +84,14 @@ BOOST_AUTO_TEST_CASE(test_read_whole_file)
 	BOOST_CHECK_NO_THROW(reader.readTo(buffer));
 	BOOST_CHECK_THROW(reader.readTo(buffer), std::out_of_range); 
 }
+
+BOOST_AUTO_TEST_CASE(test_data_correctness)
+{
+	WaveReader reader("sources/tests/WaveReaderTest/data/synthetic.wav");
+	AudioSample buffer;
+	BOOST_CHECK_NO_THROW(reader.readTo(buffer));
+	BOOST_CHECK_EQUAL(buffer.get().front(), 0x1234);
+	BOOST_CHECK_EQUAL(buffer.get()[1000], 0); // some random position inside
+	BOOST_CHECK_EQUAL(buffer.get().back(), 0x4321);
+	getchar();
+}
