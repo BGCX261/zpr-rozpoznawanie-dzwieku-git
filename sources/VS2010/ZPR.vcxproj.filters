@@ -80,11 +80,11 @@
     <ClCompile Include="..\myApp.cpp">
       <Filter>main\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\media\src\fftSampleBuilder.cpp">
-      <Filter>media\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\neur\src\neuralNetwork.cpp">
       <Filter>neur\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\media\src\audioSample.cpp">
+      <Filter>media\Header Files\buffers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -112,9 +112,6 @@
     <ClInclude Include="..\media\include\fft.h">
       <Filter>media\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\learn\include\learningSet.h">
-      <Filter>learn\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\learn\include\teacher.h">
       <Filter>learn\Header Files</Filter>
     </ClInclude>
@@ -126,9 +123,6 @@
     </ClInclude>
     <ClInclude Include="..\myApp.h">
       <Filter>main\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\media\include\fftSampleBuilder.h">
-      <Filter>media\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\media\include\audioSample.h">
       <Filter>media\Header Files\buffers</Filter>
@@ -150,6 +144,9 @@
     </ClInclude>
     <ClInclude Include="..\neur\include\mygetch.h">
       <Filter>main\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\learn\include\learningSample.h">
+      <Filter>learn\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

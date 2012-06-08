@@ -17,7 +17,10 @@ namespace learn
 
 class LearningSetReader
 {
-
+public:
+	void Initialize(const std::string& learningSetsFolder);
+protected:
+	
 };
 
 }; //namespace

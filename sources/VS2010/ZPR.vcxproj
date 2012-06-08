@@ -20,8 +20,8 @@
     <ClCompile Include="..\main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\media\src\audioSample.cpp" />
     <ClCompile Include="..\media\src\fft.cpp" />
-    <ClCompile Include="..\media\src\fftSampleBuilder.cpp" />
     <ClCompile Include="..\media\src\soundReader.cpp" />
     <ClCompile Include="..\media\src\waveReader.cpp" />
     <ClCompile Include="..\myApp.cpp" />
@@ -39,12 +39,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\learn\include\learningSet.h" />
+    <ClInclude Include="..\learn\include\learningSample.h" />
     <ClInclude Include="..\learn\include\learningSetReader.h" />
     <ClInclude Include="..\learn\include\teacher.h" />
     <ClInclude Include="..\media\include\audioSample.h" />
     <ClInclude Include="..\media\include\fft.h" />
-    <ClInclude Include="..\media\include\fftSampleBuilder.h" />
     <ClInclude Include="..\media\include\fftSample.h" />
     <ClInclude Include="..\media\include\simpleBuffer.h" />
     <ClInclude Include="..\media\include\simpleBufferImpl.h" />
