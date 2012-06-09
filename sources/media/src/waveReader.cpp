@@ -27,7 +27,7 @@ void WaveReader::openFile(const std::string& file)
 {
 	if (file_.is_open())
 		file_.close();
-	file_ = std::fstream(file, std::ios::in | std::ios::binary);
+	file_.open(file.c_str(), std::ios::in | std::ios::binary);
 	if (file_.fail())
 	{
 		throw std::runtime_error("Opening file failed.");
