@@ -110,4 +110,3 @@ BOOST_AUTO_TEST_CASE(wait)
 	system("PAUSE");
 }
 #endif
-}
