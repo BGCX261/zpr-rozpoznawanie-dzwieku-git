@@ -18,6 +18,7 @@
 
 namespace neur
 {
+	template <typename LABEL>
 	class NeuralNetwork;
 
 /// Class representing results of sample catogirization done by neural network
@@ -26,7 +27,7 @@ class ResultSet
 {
 public:
 	unsigned int	getCategoriesNum() const throw() { return results_.size(); } /// returns number of result categories
-	float			getCategoryResult(const LABEL& label) const throw(...) /// retuns percentage fitting for given category. May throw std::invalid_argument if result for given category doesn't exists
+	float			getCategoryResult(const LABEL& label) const /// retuns percentage fitting for given category. May throw std::invalid_argument if result for given category doesn't exists
 	{  
 		std::map<LABEL, float>::iterator iter;
 		iter = results_.find(label);
@@ -41,7 +42,7 @@ public:
 protected:
 	std::map<LABEL, float> results_;
 
-friend class neur::NeuralNetwork; /// giving direct access to members for the friend class
+friend class neur::NeuralNetwork<LABEL>; /// giving direct access to members for the friend class
 };
 
 }; //namespace

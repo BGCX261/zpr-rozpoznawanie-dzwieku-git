@@ -12,7 +12,7 @@
 
 #include "stdafx.h"
 #include <iostream>
-#include <boost\bind.hpp>
+#include <boost/bind.hpp>
 
 #include "myApp.h"
 

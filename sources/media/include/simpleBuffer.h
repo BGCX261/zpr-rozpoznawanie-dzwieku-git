@@ -12,6 +12,7 @@
 #define __SIMPLE_BUFFER_H__
 
 #include <vector>
+#include <memory>
 
 namespace media /// namespace for media processing modules
 {
@@ -22,11 +23,11 @@ class SimpleBuffer
 {
 public:
 	SimpleBuffer() throw() {}; /// default constructor - construct empty buffer
-	SimpleBuffer(const T* data, unsigned int count, size_t elSize=sizeof(T)) throw(...); /// constructor that allows to set buffer content. elSize may be used to fix "cutting" problem - when size of T is less than real object size pointed by "data". May throw bad_alloc
+	SimpleBuffer(const T* data, unsigned int count, size_t elSize=sizeof(T)); /// constructor that allows to set buffer content. elSize may be used to fix "cutting" problem - when size of T is less than real object size pointed by "data". May throw bad_alloc
 	
-	inline const CONTAINER&		get() const throw(...); /// gets const reference (read only) to the container. May throw bad_alloc
-	inline CONTAINER&			getWritable() throw(...); /// gets writable reference to the container. May throw bad_alloc
-	virtual void				set(const T* data, unsigned int count, size_t elSize=sizeof(T)) throw(...); /// allows to set buffer content. elSize may be used to fix "cutting" problem - when size of T is less than real object size pointed by "data". May throw bad_alloc
+	inline const CONTAINER&		get() const; /// gets const reference (read only) to the container. May throw bad_alloc
+	inline CONTAINER&			getWritable(); /// gets writable reference to the container. May throw bad_alloc
+	virtual void				set(const T* data, unsigned int count, size_t elSize=sizeof(T)); /// allows to set buffer content. elSize may be used to fix "cutting" problem - when size of T is less than real object size pointed by "data". May throw bad_alloc
 
 	inline unsigned int			getSize() const throw(); /// returns number of elements
 	inline void					clear() throw(); /// removes buffer contents
