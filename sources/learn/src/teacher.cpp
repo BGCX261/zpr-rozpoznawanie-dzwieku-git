@@ -15,13 +15,13 @@ using namespace learn;
 using namespace std;
 
 
-void Teacher::doLearn(const string& learningSetsFolder, learn::progress_callback progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork)
+void Teacher::doLearn(const string& learningSetsFolder, learn::progress_callback progressCallback, const boost::shared_ptr< neur::NeuralNetwork<> >& neuralNetwork)
 {
 	abortLearning(); /// stops current learning process, if any
 
 	learningDone_= false;
 	abortFlag_ = false;
-	thread_ = boost::thread(&Teacher::learningThread, this, progressCallback, neuralNetwork);
+	thread_ = boost::thread(&Teacher::learningThread, this, progressCallback, neuralNetwork, learningSetsFolder, spectralResolution_, maximumFrequency_);
 }
 
 
@@ -38,13 +38,27 @@ bool Teacher::abortLearning() throw()
 }
 
 
-void Teacher::learningThread(learn::progress_callback progressCallback, const boost::shared_ptr<neur::NeuralNetwork>& neuralNetwork)
+void Teacher::learningThread(learn::progress_callback progressCallback, const boost::shared_ptr< neur::NeuralNetwork<> > neuralNetwork, const string learningSetsFolder, float spectralResolution, unsigned short maximumFrequency)
 {
 	float progress = 0;
 
 	try
 	{
 		progressCallback(progress, NULL);
+
+		learningSetReader_ = auto_ptr<LearningSetReader>(new LearningSetReader);
+		if (!learningSetReader_.get())
+			throw std::bad_alloc();
+		
+		if (!learningSetReader_->initialize(learningSetsFolder))
+			throw std::runtime_error("No appropirate file structure found at given path");
+		
+		std::auto_ptr< std::vector<std::string> > categories = learningSetReader_->getCategories();
+		if (!categories.get() || !categories->size())
+			throw std::runtime_error("No appropirate file structure found at given path");
+
+		neuralNetwork->initializeNetwork((unsigned long)(maximumFrequency/spectralResolution), categories);
+
 
 		while (!abortFlag_ && progress < 100)
 		{
@@ -65,4 +79,6 @@ void Teacher::learningThread(learn::progress_callback progressCallback, const bo
 		std::bad_exception e;
 		progressCallback(progress, &e);
 	}
+
+	learningSetReader_.release();
 }

@@ -19,7 +19,7 @@ using namespace std;
 FFT* FFT::instance_;
 
 
-FFT& FFT::getInstance() throw(...)
+FFT& FFT::getInstance()
 {
 	if (!instance_)
 	{
@@ -32,7 +32,7 @@ FFT& FFT::getInstance() throw(...)
 }
 
 
-void FFT::initialize() throw(...)
+void FFT::initialize()
 {
 	if (!instance_)
 	{
@@ -54,7 +54,7 @@ void FFT::deinitialize() throw()
 }
 
 
-auto_ptr<FFTSample> calculateFFT(const AudioSample& audio) throw(...)
+auto_ptr<FFTSample> calculateFFT(const AudioSample& audio)
 {
 	return auto_ptr<FFTSample>(new FFTSample); //TODO
 }

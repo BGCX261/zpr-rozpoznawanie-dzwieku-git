@@ -20,12 +20,12 @@ template <typename LABEL=std::string>
 class LearningSample
 {
 public:
-	const boost::shared_ptr<FFTSample>	getSample() const { return sample_ }		/// accessor to the sample
-	const LABEL							getCategory() const { return category_ }	/// accessor to the category
+	const boost::shared_ptr<media::FFTSample>	getSample() const { return sample_ }		/// accessor to the sample
+	const LABEL									getCategory() const { return category_ }	/// accessor to the category
 
 protected:
-	boost::shared_ptr<FFTSample>	sample_;	/// smart pointer to the sample
-	LABEL							category_;	///	 category assigned to the sample
+	boost::shared_ptr<media::FFTSample>	sample_;	/// smart pointer to the sample
+	LABEL								category_;	///	 category assigned to the sample
 
 };
 

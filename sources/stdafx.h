@@ -9,15 +9,17 @@
 
 #ifdef _WIN32
 
+#include <cstring>
+#include <stdexcept>
 #include <iostream>
 #include <fstream>
 #include <list>
 #include <vector>
 #include <map>
 #include <memory> // for auto_ptr
-#include <boost\function.hpp>
-#include <boost\bind.hpp>
-#include <boost\thread.hpp>
-#include <boost\smart_ptr\shared_ptr.hpp>
+#include <boost/function.hpp>
+#include <boost/bind.hpp>
+#include <boost/thread.hpp>
+#include <boost/smart_ptr/shared_ptr.hpp>
 
 #endif

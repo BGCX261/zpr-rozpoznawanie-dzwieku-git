@@ -14,7 +14,7 @@
 
 using namespace media;
 
-unsigned int AudioSample::getLength() const throw(...)
+unsigned int AudioSample::getLength() const
 { 
 	unsigned int samplesNum = getSize();
 	if (samplesNum == 0)
@@ -24,7 +24,7 @@ unsigned int AudioSample::getLength() const throw(...)
 } 
 
 
-void AudioSample::set(const unsigned short* data, unsigned int count) throw(...)
+void AudioSample::set(const unsigned short* data, unsigned int count)
 {
 	if (buffer_.get())
 		clear();

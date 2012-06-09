@@ -13,14 +13,14 @@
 #define __SIMPLE_BUFFER_IMPL_H__
 
 template <typename T, class CONTAINER>
-SimpleBuffer<T, CONTAINER>::SimpleBuffer(const T* data, unsigned int count, size_t elSize) throw(...)
+SimpleBuffer<T, CONTAINER>::SimpleBuffer(const T* data, unsigned int count, size_t elSize)
 {
 	set(data, count, elSize);
 }
 
 
 template <typename T, class CONTAINER>
-inline const CONTAINER& SimpleBuffer<T, CONTAINER>::get() const throw(...)
+inline const CONTAINER& SimpleBuffer<T, CONTAINER>::get() const
 {
 	if (!buffer_.get())
 		buffer_ = std::auto_ptr<CONTAINER>(new CONTAINER); /// new may throw bad alloc
@@ -30,14 +30,14 @@ inline const CONTAINER& SimpleBuffer<T, CONTAINER>::get() const throw(...)
 
 
 template <typename T, class CONTAINER>
-inline CONTAINER& SimpleBuffer<T, CONTAINER>::getWritable() throw(...)
+inline CONTAINER& SimpleBuffer<T, CONTAINER>::getWritable()
 {
 	return const_cast<CONTAINER&>(get());
 }
 
 
 template <typename T, class CONTAINER>
-void SimpleBuffer<T, CONTAINER>::set(const T* data, unsigned int count, size_t elSize) throw(...)
+void SimpleBuffer<T, CONTAINER>::set(const T* data, unsigned int count, size_t elSize)
 {
 	if (buffer_.get())
 		clear();

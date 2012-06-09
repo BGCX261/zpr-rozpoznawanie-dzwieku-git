@@ -66,7 +66,7 @@ void MyApp::waitTillAbort() throw()
 }
 
 
-bool MyApp::waitTillLearning() throw(...)
+bool MyApp::waitTillLearning()
 {
 	stopAbortLoop_ = false;
 	boost::thread abortThread(&MyApp::waitTillAbort, this);
@@ -102,7 +102,7 @@ void MyApp::learnCallback(float progress, const std::exception* e)
 }
 
 
-const neur::ResultSet<> MyApp::doCategorizeFile(const string& filePath) throw(...)
+const neur::ResultSet<> MyApp::doCategorizeFile(const string& filePath)
 {
 	neur::ResultSet<> results;
 

@@ -12,6 +12,7 @@
 #ifndef __FFT_H__
 #define __FFT_H__
 
+#include <memory>
 #include "fftSample.h"
 #include "audioSample.h"
 
@@ -25,12 +26,12 @@ private:
 	FFT() {} /// private empty constructor - for singleton.
 
 public:
-	static FFT& getInstance() throw(...); /// gets singleton instance. Initializes singleton if it was not yet created. May throw bad_alloc
+	static FFT& getInstance(); /// gets singleton instance. Initializes singleton if it was not yet created. May throw bad_alloc
 
-	static void initialize() throw(...); /// initializes singleton if it was not yet created. May throw bad_alloc. User do not have to call this, may use getInstance instead.
+	static void initialize(); /// initializes singleton if it was not yet created. May throw bad_alloc. User do not have to call this, may use getInstance instead.
 	static void deinitialize() throw(); /// destroys singleton
 
-	std::auto_ptr<FFTSample> calculateFFT(const AudioSample& audio) throw(...); /// calculates FFT of provided audio sample. May throw
+	std::auto_ptr<FFTSample> calculateFFT(const AudioSample& audio); /// calculates FFT of provided audio sample. May throw
 
 protected:
 	static FFT* instance_;

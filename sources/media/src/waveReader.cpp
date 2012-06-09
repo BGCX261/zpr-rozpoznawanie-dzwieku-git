@@ -13,6 +13,7 @@
 
 #include <cstring>
 #include <stdexcept>
+#include <memory>
 
 using namespace media;
 
