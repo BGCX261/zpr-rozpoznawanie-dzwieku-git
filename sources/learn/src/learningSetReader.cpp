@@ -8,6 +8,7 @@
 /// Lukasz Rychter
 /// Maciej Sikora
 
+#include <stdexcept>
 #include "stdafx.h"
 #include "learningSetReader.h"
 
@@ -15,15 +16,19 @@ using namespace learn;
 using namespace std;
 
 
-bool LearningSetReader::initialize(const std::string& learningSetsFolder) throw (...)
+bool LearningSetReader::initialize(const std::string& learningSetsFolder) throw ()
 {
-	return false; //TODO
+    /* if(1 == 2)
+        throw std::exception; */
+    return false; //TODO
 }
 
 
 auto_ptr< std::vector<string> > LearningSetReader::getCategories() const throw()
 {
-	return auto_ptr< std::vector<string> >(); //TODO
+    /* if(1 == 2)
+        throw std::exception; */
+    return auto_ptr< std::vector<string> >(); //TODO
 }
 
 

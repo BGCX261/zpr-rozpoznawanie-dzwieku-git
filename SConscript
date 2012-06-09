@@ -11,17 +11,12 @@ if hasattr(env, "PCH"):
 env['CPPPATH'] = ['.', 'neur/include', 'learn/include', 
 	'media/include', 'contrib/fftw-3.3.1/api']
 
-if(platform.system() == "Linux"):
-    #Linux - indicates library boost_unit_test to link with
-    env['LIBS'] = ['boost_unit_test_framework']
+env['LIBS'] = ['boost_thread', 'boost_unit_test_framework']
 
-"""
-TODO do zbudowania reszta testow oraz aplikacja
-env.Program(target = '../ZPR', source = ['main.cpp', 'neur/src/neuron.cpp','neur/src/network.cpp', 
+env.Program(target = '../ZPR', source = ['main.cpp', 'myApp.cpp', 'neur/src/neuron.cpp',
 	'media/src/audioSample.cpp', 'media/src/fft.cpp', 'media/src/soundReader.cpp',
 	'media/src/waveReader.cpp', 'learn/src/learningSetReader.cpp', 'learn/src/teacher.cpp',
 	'tests/neurTest/neurTest.cpp'])
-"""
 
 env.Program(target = '../WaveReaderTest', source = ['media/src/waveReader.cpp',
 	'media/src/audioSample.cpp', 'tests/WaveReaderTest/WaveReaderTest.cpp'])

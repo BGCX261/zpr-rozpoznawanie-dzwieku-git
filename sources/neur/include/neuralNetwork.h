@@ -34,6 +34,6 @@ protected:
 
 #include "neuralNetworkImpl.h"
 
-}; //namespace
+} //namespace
 
 #endif
