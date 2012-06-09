@@ -21,8 +21,9 @@ namespace media
 class AudioSample : public SimpleBuffer<unsigned short>
 {
 public:
-	AudioSample(unsigned int sampleRate=0) throw() : sampleRate_(sampleRate) {}; /// default constructor. Construct empty object. Sampling rate may be set
-	AudioSample(unsigned short* data, unsigned int count, unsigned int sampleRate=0) throw() : sampleRate_(sampleRate), SimpleBuffer<unsigned short>(data, count) {}; /// Construct object with provided data. Sampling rate may be set
+    AudioSample(unsigned int sampleRate=0) throw() : sampleRate_(sampleRate) {} /// default constructor. Construct empty object. Sampling rate may be set
+    AudioSample(unsigned short* data, unsigned int count, unsigned int sampleRate=0) throw() : sampleRate_(sampleRate), SimpleBuffer<unsigned short>(data, count) {} /// Construct object with provided data. Sampling rate may be set
+    virtual ~AudioSample() {}
 
 	unsigned int	getLength() const; /// sample length in milliseconds. May throw if sample rate is not set (or set to 0)
 
@@ -40,6 +41,6 @@ protected:
 	unsigned short	channels_;		/// number of channels of audio
 };
 
-}; //namespace
+} //namespace
 
 #endif

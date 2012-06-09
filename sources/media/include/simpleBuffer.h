@@ -13,6 +13,7 @@
 
 #include <vector>
 #include <memory>
+#include <cstring>
 
 namespace media /// namespace for media processing modules
 {
@@ -22,8 +23,9 @@ template <typename T, class CONTAINER=std::vector<T> > /// CONTAINER may be STL'
 class SimpleBuffer
 {
 public:
-	SimpleBuffer() throw() {}; /// default constructor - construct empty buffer
+    SimpleBuffer() throw() {} /// default constructor - construct empty buffer
 	SimpleBuffer(const T* data, unsigned int count, size_t elSize=sizeof(T)); /// constructor that allows to set buffer content. elSize may be used to fix "cutting" problem - when size of T is less than real object size pointed by "data". May throw bad_alloc
+    virtual ~SimpleBuffer() {}
 	
 	inline const CONTAINER&		get() const; /// gets const reference (read only) to the container. May throw bad_alloc
 	inline CONTAINER&			getWritable(); /// gets writable reference to the container. May throw bad_alloc
@@ -32,7 +34,7 @@ public:
 	inline unsigned int			getSize() const throw(); /// returns number of elements
 	inline void					clear() throw(); /// removes buffer contents
 
-	inline unsigned char		getElementSize() const throw() { return sizeof(T); }; /// returns size of the element
+    inline unsigned char		getElementSize() const throw() { return sizeof(T); } /// returns size of the element
 
 	typedef T element_type;
 
@@ -42,6 +44,6 @@ protected:
 
 #include "simpleBufferImpl.h"
 
-}; //namespace
+} //namespace
 
 #endif

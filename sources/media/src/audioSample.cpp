@@ -10,7 +10,8 @@
 /// Maciej Sikora
 
 #include "stdafx.h"
-#include "AudioSample.h"
+#include "audioSample.h"
+#include <stdexcept>
 
 using namespace media;
 
@@ -29,7 +30,7 @@ void AudioSample::set(const unsigned short* data, unsigned int count)
 	if (buffer_.get())
 		clear();
 	else
-		buffer_ = std::auto_ptr<std::vector<unsigned short>>(new std::vector<unsigned short>); /// new may throw bad alloc
+        buffer_ = std::auto_ptr<std::vector<unsigned short> >(new std::vector<unsigned short>); /// new may throw bad alloc
 	
 	if (!buffer_.get())
 		throw std::bad_alloc();

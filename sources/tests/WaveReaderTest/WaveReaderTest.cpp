@@ -1,8 +1,17 @@
-#define BOOST_TEST_MODULE wave_reader_test
+// generating main function
+#define BOOST_TEST_MAIN
+
+// enabling dynamic linking
+#define BOOST_TEST_DYN_LINK
+
 #include <boost/test/unit_test.hpp>
 #include "waveReader.h"
 
 using namespace media;
+using namespace boost::unit_test;
+using namespace boost::unit_test_framework;
+
+BOOST_AUTO_TEST_SUITE(wave_reader_test)
 
 BOOST_AUTO_TEST_CASE(test_default_initialization)
 {
@@ -103,6 +112,7 @@ BOOST_AUTO_TEST_CASE(test_data_correctness)
 
 }
 
+// to easily run test from exe file
 #ifdef _WIN32
 BOOST_AUTO_TEST_CASE(wait)
 {
@@ -110,3 +120,5 @@ BOOST_AUTO_TEST_CASE(wait)
 	system("PAUSE");
 }
 #endif
+
+BOOST_AUTO_TEST_SUITE_END()
