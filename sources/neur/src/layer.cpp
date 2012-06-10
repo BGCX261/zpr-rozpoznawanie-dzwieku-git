@@ -25,9 +25,38 @@ void Layer::initialize(const BaseNeuron& neuronModel, unsigned long neuronsNum)
 }
 
 
-void Layer::connectWithNextLayer(Layer&)
+void Layer::connectWithNextLayer(Layer& nextLayer)
 {
+	std::list< std::auto_ptr<BaseNeuron> >::iterator left_layer_iter;
+	for (left_layer_iter=neurons_.begin(); left_layer_iter!=neurons_.end(); ++left_layer_iter)
+	{
+		BaseNeuron* leftLayerNeuron = left_layer_iter->get();
+		if (!leftLayerNeuron)
+			throw std::runtime_error("Missing neuron");
 
+		leftLayerNeuron->frontConnection_.clear();
+
+		std::list< std::auto_ptr<BaseNeuron> >::iterator right_layer_iter;
+		for (right_layer_iter=nextLayer.neurons_.begin(); right_layer_iter!=nextLayer.neurons_.end(); ++right_layer_iter)
+		{
+			BaseNeuron* rightLayerNeuron = right_layer_iter->get();
+			if (!rightLayerNeuron)
+				throw std::runtime_error("Missing neuron");
+	
+			boost::shared_ptr<NeuronConnection> newConnection(new NeuronConnection);
+			newConnection->left_ = leftLayerNeuron;
+			newConnection->right_ = rightLayerNeuron;
+			
+			leftLayerNeuron->frontConnection_.push_back(newConnection);
+			rightLayerNeuron->backConnection_.push_back(newConnection);
+		}
+	}
+}
+
+
+void Layer::resetNeuronsValue()
+{
+	for_each(neurons_.begin(), neurons_.end(), boost::bind(&BaseNeuron::resetValue, _1));
 }
 
 
@@ -37,7 +66,7 @@ void Layer::propagateSignal() const
 }
 
 
-void Layer::propagateLearningResponse() const
+void Layer::propagateLearningResponse(float learningFactor) const
 {
-	for_each(neurons_.begin(), neurons_.end(), boost::bind(&BaseNeuron::propagateLearningResponse, _1));
+	for_each(neurons_.begin(), neurons_.end(), boost::bind(&BaseNeuron::propagateLearningResponse, _1, learningFactor));
 }

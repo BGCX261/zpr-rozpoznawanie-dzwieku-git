@@ -22,6 +22,7 @@ MyApp::MyApp()
 
 MyApp::~MyApp()
 {
+	neuralNetwork_.reset();
 	media::FFT::deinitialize();
 #ifdef _WIN32
 	cout << endl << endl;

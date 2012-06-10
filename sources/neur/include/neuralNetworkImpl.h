@@ -47,7 +47,6 @@ void NeuralNetwork<LABEL>::initializeNetwork(unsigned long inputNeuronsNum, cons
 		outputNeuron->setCategory(*category_iter);
 	}
 
-
 	/// Connecting layers to each other
 	for (std::list<std::auto_ptr<Layer> >::iterator iter=layers_.begin(); iter!=--layers_.end();)
 	{
@@ -57,14 +56,59 @@ void NeuralNetwork<LABEL>::initializeNetwork(unsigned long inputNeuronsNum, cons
 
 
 template <typename LABEL>
+void NeuralNetwork<LABEL>::resetNeuronsValue()
+{
+	for (std::list<std::auto_ptr<Layer> >::iterator iter=layers_.begin(); iter!=--layers_.end(); ++iter)
+	{
+		if (!iter->get())
+			throw std::runtime_error("Missing layer");
+		
+		iter->get()->resetNeuronsValue();
+	}
+}
+
+
+template <typename LABEL>
+void NeuralNetwork<LABEL>::propagateSignal()
+{
+	/// propagating signal through neural network
+	for (std::list<std::auto_ptr<Layer> >::iterator iter=layers_.begin(); iter!=--layers_.end(); ++iter)
+	{
+		if (!iter->get())
+			throw std::runtime_error("Missing layer");
+		
+		iter->get()->propagateSignal();
+	}
+}
+
+
+template <typename LABEL>
 void NeuralNetwork<LABEL>::learnPattern(const std::vector<float>& inputSignals, const ResultSet<LABEL>& desirableResult)
 {
-	if (!layers_.front().get())
+	if (!layers_.size() || !layers_.front().get())
 		throw std::runtime_error("Neural network is not initialized");
 
-	Layer& inputLayer = *layers_.front().get();
+
+	/// sets desirable results to outputs
+	std::list<std::auto_ptr<BaseNeuron> >& outputLayerNeurons = layers_.back()->neurons_;
+	
+	for (std::list<std::auto_ptr<BaseNeuron> >::const_iterator neuron_iter=outputLayerNeurons.begin(); 
+		neuron_iter!=outputLayerNeurons.end(); 
+		++neuron_iter)
+	{
+		if (!neuron_iter->get())
+			throw std::runtime_error("Missing neuron");
+
+		OutputLayerNeuron<LABEL>* outputNeuron= dynamic_cast< OutputLayerNeuron<LABEL>* >(neuron_iter->get());
+		if (!outputNeuron)
+			throw std::runtime_error("Neuron is not valid output layer neuron");
+	
+		outputNeuron->setDesiredValue( desirableResult.getCategoryResult(outputNeuron->getCategory() ) );
+	}
+
 
 	/// passing inputs onto input layer
+	Layer& inputLayer = *layers_.front().get();
 	std::list<std::auto_ptr<BaseNeuron> >& inputLayerNeurons = inputLayer.neurons_;
 
 	do
@@ -79,11 +123,9 @@ void NeuralNetwork<LABEL>::learnPattern(const std::vector<float>& inputSignals, 
 			neuron_iter->get()->processInput(*input_iter);
 		}
 
-		/// propagating signal through neural network
-		for (std::list<std::auto_ptr<Layer> >::iterator iter=layers_.begin(); iter!=--layers_.end(); ++iter)
-			iter->get()->propagateSignal();
-
-
+		resetNeuronsValue();
+		propagateSignal();
+				
 		/// backpropagate learning info
 		for (std::list<std::auto_ptr<Layer> >::reverse_iterator iter=layers_.rbegin(); iter!=--layers_.rend(); ++iter)
 			iter->get()->propagateLearningResponse();
@@ -98,9 +140,8 @@ std::auto_ptr< ResultSet<LABEL> > NeuralNetwork<LABEL>::recognizePattern(const s
 	if (!layers_.front().get())
 		throw std::runtime_error("Neural network is not initialized");
 
-	Layer& inputLayer = *layers_.front().get();
-
 	/// passing inputs onto input layer
+	Layer& inputLayer = *layers_.front().get();
 	std::list<std::auto_ptr<BaseNeuron> >& inputLayerNeurons = inputLayer.neurons_;
 
 	std::vector<float>::const_iterator input_iter = inputSignals.begin();
@@ -113,13 +154,12 @@ std::auto_ptr< ResultSet<LABEL> > NeuralNetwork<LABEL>::recognizePattern(const s
 		neuron_iter->get()->processInput(*input_iter);
 	}
 
-	/// propagating signal through neural network
-	for (std::list<std::auto_ptr<Layer> >::iterator iter=layers_.begin(); iter!=--layers_.end(); ++iter)
-		iter->get()->propagateSignal();
+	resetNeuronsValue();
+	propagateSignal();
 
+	
 	std::auto_ptr< ResultSet<LABEL> > resultSet(new ResultSet<LABEL>);
-
-
+	
 	std::list<std::auto_ptr<BaseNeuron> >& outputLayerNeurons = layers_.back()->neurons_;
 	
 	for (std::list<std::auto_ptr<BaseNeuron> >::const_iterator neuron_iter=outputLayerNeurons.begin(); 
@@ -129,7 +169,7 @@ std::auto_ptr< ResultSet<LABEL> > NeuralNetwork<LABEL>::recognizePattern(const s
 		if (!neuron_iter->get())
 			throw std::runtime_error("Missing neuron");
 
-		OutputLayerNeuron* outputNeuron= dynamic_cast<OutputLayerNeuron>(neuron_iter->get());
+		OutputLayerNeuron<LABEL>* outputNeuron= dynamic_cast< OutputLayerNeuron<LABEL>* >(neuron_iter->get());
 		if (!outputNeuron)
 			throw std::runtime_error("Neuron is not valid output layer neuron");
 	

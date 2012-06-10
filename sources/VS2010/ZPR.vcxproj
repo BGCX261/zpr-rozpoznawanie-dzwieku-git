@@ -54,6 +54,7 @@
     <ClInclude Include="..\neur\include\neuralNetwork.h" />
     <ClInclude Include="..\neur\include\neuralNetworkImpl.h" />
     <ClInclude Include="..\neur\include\baseNeuron.h" />
+    <ClInclude Include="..\neur\include\neuronConnection.h" />
     <ClInclude Include="..\neur\include\outputLayerNeuron.h" />
     <ClInclude Include="..\neur\include\resultSet.h" />
     <ClInclude Include="..\stdafx.h" />

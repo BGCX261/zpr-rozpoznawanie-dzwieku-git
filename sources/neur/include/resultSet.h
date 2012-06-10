@@ -27,13 +27,15 @@ public:
 	unsigned int	getCategoriesNum() const throw() { return results_.size(); } /// returns number of result categories
 	float			getCategoryResult(const LABEL& label) const /// retuns percentage fitting for given category. May throw std::invalid_argument if result for given category doesn't exists
 	{  
-        typename std::map<LABEL, float>::iterator iter;
+        typename std::map<LABEL, float>::const_iterator iter;
 		iter = results_.find(label);
 		if (iter != results_.end())
 			return iter->second;
 		else
-			throw std::invalid_argument();
+			throw std::invalid_argument("Not found result for given category");
 	}
+
+	float operator[](const LABEL& label) const { return getCategoryResult(label); }
 
     const std::map<LABEL, float>& get() const throw() { return results_; } /// returns const reference to results
 	std::map<LABEL, float>& getWritable() throw() { return results_; } /// returns writable reference to results

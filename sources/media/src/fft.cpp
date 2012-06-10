@@ -54,7 +54,7 @@ void FFT::deinitialize() throw()
 	}
 }
 
-#pragma warning(disable:4996) /// disabling warning about possibly usafe copying
+
 auto_ptr<FFTSample> FFT::calculateFFT(const AudioSample& audio)
 {
 	unsigned long samples = audio.getSize();
@@ -77,6 +77,7 @@ auto_ptr<FFTSample> FFT::calculateFFT(const AudioSample& audio)
 	
 	fftwf_plan plan = fftwf_plan_dft_r2c_1d(samples, in_buf, out_buf, FFTW_ESTIMATE | FFTW_DESTROY_INPUT);
 	fftwf_execute(plan);
+	fftwf_destroy_plan(plan);
 
 	fftwf_free(in_buf);
 
@@ -85,7 +86,7 @@ auto_ptr<FFTSample> FFT::calculateFFT(const AudioSample& audio)
 	std::vector<float>& fft_buf = fftSample->getWritable();
 
 	for (unsigned long i=0; i<samples/2; ++i)
-		fft_buf[i] = sqrtf(out_buf[i+1][0]*out_buf[i+1][0] + out_buf[i+1][1]*out_buf[i+1][1]) / samples; /// i+1 -> omit DC shift
+		fft_buf[i] = sqrtf(out_buf[i+1][0]*out_buf[i+1][0] + out_buf[i+1][1]*out_buf[i+1][1]) / (samples*samples); /// i+1 -> omit DC shift
 
 	fftwf_free(out_buf);
 

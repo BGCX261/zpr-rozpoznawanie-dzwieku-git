@@ -21,7 +21,7 @@ using namespace std;
 int main()
 {
 	MyApp& myApp = MyApp::getInstance();
-	myApp.setLearningSetsFolder("sounds");
+	myApp.setLearningSetsFolder("sounds/learn");
 	
 	try
 	{

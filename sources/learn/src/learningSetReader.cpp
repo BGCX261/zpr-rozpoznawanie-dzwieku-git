@@ -96,6 +96,8 @@ auto_ptr< LearningSample<string> > LearningSetReader::getNextLearningSample(unsi
 
 
 	std::auto_ptr<media::FFTSample> fftSample = media::FFT::getInstance().calculateFFT(audioSample);
+	if (!fftSample.get())
+		throw std::runtime_error("Calculating FFT failed");
 		
 	auto_ptr< LearningSample<string> > learningSample(new LearningSample<string>(boost::shared_ptr<media::FFTSample>(fftSample), category));
 	

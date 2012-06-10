@@ -18,6 +18,7 @@
 #include <vector>
 #include <map>
 #include <memory> // for auto_ptr
+#include <math.h>
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 #include <boost/thread.hpp>
