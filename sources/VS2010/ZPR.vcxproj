@@ -24,7 +24,7 @@
     <ClCompile Include="..\media\src\fft.cpp" />
     <ClCompile Include="..\media\src\waveReader.cpp" />
     <ClCompile Include="..\myApp.cpp" />
-    <ClCompile Include="..\neur\src\neuron.cpp">
+    <ClCompile Include="..\neur\src\baseNeuron.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Tests|Win32'">Use</PrecompiledHeader>
     </ClCompile>
@@ -46,14 +46,14 @@
     <ClInclude Include="..\media\include\soundReader.h" />
     <ClInclude Include="..\media\include\waveReader.h" />
     <ClInclude Include="..\myApp.h" />
-    <ClInclude Include="..\neur\include\baseLayer.h" />
-    <ClInclude Include="..\neur\include\hiddenLayer.h" />
-    <ClInclude Include="..\neur\include\inputLayer.h" />
+    <ClInclude Include="..\neur\include\layer.h" />
+    <ClInclude Include="..\neur\include\hiddenLayerNeuron.h" />
+    <ClInclude Include="..\neur\include\inputLayerNeuron.h" />
     <ClInclude Include="..\neur\include\mygetch.h" />
     <ClInclude Include="..\neur\include\neuralNetwork.h" />
     <ClInclude Include="..\neur\include\neuralNetworkImpl.h" />
-    <ClInclude Include="..\neur\include\neuron.h" />
-    <ClInclude Include="..\neur\include\outputLayer.h" />
+    <ClInclude Include="..\neur\include\baseNeuron.h" />
+    <ClInclude Include="..\neur\include\outputLayerNeuron.h" />
     <ClInclude Include="..\neur\include\resultSet.h" />
     <ClInclude Include="..\stdafx.h" />
   </ItemGroup>

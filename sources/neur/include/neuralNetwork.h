@@ -16,7 +16,7 @@
 #include <set>
 #include <list>
 #include <memory> // for auto_ptr
-#include "baseLayer.h"
+#include "layer.h"
 #include "resultSet.h"
 
 namespace neur /// neural network namespace
@@ -30,7 +30,7 @@ public:
 	void initializeNetwork(unsigned long inputNeuronsNum, const std::auto_ptr< std::set<LABEL> >& outputCategories);	/// initializes neural network with given number of inputs and outputs as given categories
 
 protected:
-	std::list<std::auto_ptr<BaseLayer> >	layers_;	///< list of pointers to layers of the neural network
+	std::list<std::auto_ptr<Layer> > layers_; ///< list of pointers to layers of the neural network
 };
 
 #include "neuralNetworkImpl.h"

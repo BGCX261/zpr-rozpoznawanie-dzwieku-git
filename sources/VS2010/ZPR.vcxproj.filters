@@ -15,9 +15,6 @@
       <UniqueIdentifier>{d12d94a7-5647-4af1-a19b-01a172860ffc}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="neur\Header Files\layers">
-      <UniqueIdentifier>{792c8353-96f1-44c4-8ac5-79a1c28f1af9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="learn">
       <UniqueIdentifier>{d18c870e-f184-4219-8607-744224539641}</UniqueIdentifier>
     </Filter>
@@ -51,11 +48,11 @@
     <Filter Include="media\Header Files\buffers">
       <UniqueIdentifier>{b764b434-2979-40d8-bcda-41d52043c833}</UniqueIdentifier>
     </Filter>
+    <Filter Include="neur\Header Files\neurons">
+      <UniqueIdentifier>{792c8353-96f1-44c4-8ac5-79a1c28f1af9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\neur\src\neuron.cpp">
-      <Filter>neur\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\media\src\waveReader.cpp">
       <Filter>media\Source Files</Filter>
     </ClCompile>
@@ -80,23 +77,11 @@
     <ClCompile Include="..\media\src\audioSample.cpp">
       <Filter>media\Header Files\buffers</Filter>
     </ClCompile>
+    <ClCompile Include="..\neur\src\baseNeuron.cpp">
+      <Filter>neur\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\neur\include\neuron.h">
-      <Filter>neur\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\neur\include\baseLayer.h">
-      <Filter>neur\Header Files\layers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\neur\include\hiddenLayer.h">
-      <Filter>neur\Header Files\layers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\neur\include\inputLayer.h">
-      <Filter>neur\Header Files\layers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\neur\include\outputLayer.h">
-      <Filter>neur\Header Files\layers</Filter>
-    </ClInclude>
     <ClInclude Include="..\media\include\soundReader.h">
       <Filter>media\Header Files</Filter>
     </ClInclude>
@@ -144,6 +129,21 @@
     </ClInclude>
     <ClInclude Include="..\neur\include\neuralNetworkImpl.h">
       <Filter>neur\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\neur\include\hiddenLayerNeuron.h">
+      <Filter>neur\Header Files\neurons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\neur\include\inputLayerNeuron.h">
+      <Filter>neur\Header Files\neurons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\neur\include\outputLayerNeuron.h">
+      <Filter>neur\Header Files\neurons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\neur\include\layer.h">
+      <Filter>neur\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\neur\include\baseNeuron.h">
+      <Filter>neur\Header Files\neurons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

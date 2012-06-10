@@ -47,6 +47,7 @@ void MyApp::doLearn(learn::progress_callback progressCallback)
 	cout << endl
 		 << "Starting learning process. Press ESC to abort\n";
 
+	neuralNetwork_ = boost::shared_ptr< neur::NeuralNetwork<> >(new neur::NeuralNetwork<>);
 	teacher_.doLearn(learningSetsFolder_, progressCallback, neuralNetwork_);
 }
 

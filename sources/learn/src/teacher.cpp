@@ -21,6 +21,10 @@ void Teacher::doLearn(const string& learningSetsFolder, learn::progress_callback
 
 	learningDone_= false;
 	abortFlag_ = false;
+
+	if (!neuralNetwork.get())
+		throw std::runtime_error("Invalid pointer to neural network");
+
 	thread_ = boost::thread(&Teacher::learningThread, this, progressCallback, neuralNetwork, learningSetsFolder, spectralResolution_, maximumFrequency_);
 }
 
@@ -57,7 +61,7 @@ void Teacher::learningThread(learn::progress_callback progressCallback, const bo
 		if (!categories.get() || !categories->size())
 			throw std::runtime_error("No appropirate file structure found at given path");
 
-		//neuralNetwork->initializeNetwork((unsigned long)(maximumFrequency/spectralResolution), categories);
+		neuralNetwork->initializeNetwork((unsigned long)(maximumFrequency/spectralResolution), categories);
 
 		unsigned short sampleTime = (unsigned short)(1000/spectralResolution);
 
