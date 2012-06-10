@@ -42,7 +42,7 @@ void MyApp::printProgramHeader() const throw()
 }
 
 
-void MyApp::doLearn(learn::progress_callback progressCallback) throw()
+void MyApp::doLearn(learn::progress_callback progressCallback)
 {
 	cout << endl
 		 << "Starting learning process. Press ESC to abort\n";
