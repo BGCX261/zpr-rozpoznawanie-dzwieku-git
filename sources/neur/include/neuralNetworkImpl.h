@@ -18,4 +18,19 @@ void NeuralNetwork<LABEL>::initializeNetwork(unsigned long inputNeuronsNum, cons
 	//TODO
 }
 
+
+template <typename LABEL>
+void NeuralNetwork<LABEL>::learnPattern(const std::vector<float>& inputSignals, const ResultSet<LABEL>& desirableResult)
+{
+
+}
+
+
+template <typename LABEL>
+std::auto_ptr<ResultSet<LABEL>>	NeuralNetwork<LABEL>::recognizePattern(const std::vector<float>& inputSignals)
+{
+	return std::auto_ptr<ResultSet<LABEL>>; //TODO
+}
+
+
 #endif

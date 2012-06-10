@@ -1,8 +1,8 @@
 /** 
 * @file
-* Implementation of BaseNeuron class
+* Implementation of Layer class
 * 
-* It represents single neuron object from neural network - from any layer
+* It represents layer in a neural network
 */
 
 /// Lukasz Rychter

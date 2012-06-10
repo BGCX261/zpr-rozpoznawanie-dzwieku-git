@@ -72,7 +72,13 @@ void Teacher::learningThread(learn::progress_callback progressCallback, const bo
 				progress = 100;
 			else
 			{
+				neur::ResultSet<string> desirableResult;
+				std::map<string, float>& desirableResultMap = desirableResult.getWritable();
 
+				for (std::set<std::string>::const_iterator citer = categories->begin(); citer != categories->end(); ++citer)
+					desirableResultMap[*citer] = ((*citer == learningSample->getCategory()) ? 1.0f : 0.0f);
+
+				neuralNetwork->learnPattern(learningSample->getSample().get()->get(), desirableResult);
 			}
 			progressCallback(progress, NULL);
 		}

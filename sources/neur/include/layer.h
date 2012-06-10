@@ -21,6 +21,10 @@ namespace neur
 /// Class representing layer in a neural network
 class Layer
 {
+public:
+	void propagateSignal() const; /// propagates signals from each neuron from this layer to every neuron connected to it
+	void propagateLearningResponse() const; /// back propagates learning response from each neuron from this layer to every neuron connected to its input
+
 protected:
 	std::list<std::auto_ptr<BaseNeuron> >	neurons_; ///< list of pointers to neurons from this layer
 };

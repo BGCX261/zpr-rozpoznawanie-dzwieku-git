@@ -80,6 +80,9 @@
     <ClCompile Include="..\neur\src\baseNeuron.cpp">
       <Filter>neur\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\neur\src\layer.cpp">
+      <Filter>neur\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\media\include\soundReader.h">

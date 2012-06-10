@@ -37,7 +37,8 @@ public:
 			throw std::invalid_argument();
 	}
 
-    const std::map<LABEL, float>& getResults() const throw() { return results_; } /// returns const reference to results
+    const std::map<LABEL, float>& get() const throw() { return results_; } /// returns const reference to results
+	std::map<LABEL, float>& getWritable() throw() { return results_; } /// returns writable reference to results
 
 protected:
     std::map<LABEL, float> results_;
