@@ -18,6 +18,9 @@
 #include <memory> // for auto_ptr
 #include "layer.h"
 #include "resultSet.h"
+#include "inputLayerNeuron.h"
+#include "hiddenLayerNeuron.h"
+#include "outputLayerNeuron.h"
 
 namespace neur /// neural network namespace
 {
@@ -29,8 +32,8 @@ class NeuralNetwork
 public:
 	void initializeNetwork(unsigned long inputNeuronsNum, const std::vector<unsigned long>& hiddenLayersNeuronNums, const std::auto_ptr< std::set<LABEL> >& outputCategories); /// initializes neural network with given number of inputs and outputs as given categories
 	
-	void							learnPattern(const std::vector<float>& inputSignals, const ResultSet<LABEL>& desirableResult); /// teaches neural network to recognize given input and produce desirable result mapping
-	std::auto_ptr<ResultSet<LABEL>>	recognizePattern(const std::vector<float>& inputSignals); /// propagates input signals through neural network and returns recognition results
+	void								learnPattern(const std::vector<float>& inputSignals, const ResultSet<LABEL>& desirableResult); /// teaches neural network to recognize given input and produce desirable result mapping
+	std::auto_ptr< ResultSet<LABEL> >	recognizePattern(const std::vector<float>& inputSignals); /// propagates input signals through neural network and returns recognition results
 
 protected:
 	std::list<std::auto_ptr<Layer> > layers_; ///< list of pointers to layers of the neural network

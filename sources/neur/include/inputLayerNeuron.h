@@ -20,7 +20,8 @@ namespace neur
 /// Class representing a neuron in input layer of neural network
 class InputLayerNeuron : public BaseNeuron
 {
-
+public:
+	virtual BaseNeuron* clone() const { return new InputLayerNeuron(*this); } /// clones neuron. Caller is responsible for destruction of the clone
 };
 
 }; //namespace

@@ -20,7 +20,8 @@ namespace neur
 /// Class representing a neuron in "hidden" layer of neural network
 class HiddenLayerNeuron : public BaseNeuron
 {
-
+public:
+	virtual BaseNeuron* clone() const { return new HiddenLayerNeuron(*this); } /// clones neuron. Caller is responsible for destruction of the clone
 };
 
 }; //namespace

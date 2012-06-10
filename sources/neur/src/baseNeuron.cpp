@@ -12,3 +12,9 @@
 #include "baseNeuron.h"
 
 using namespace neur;
+
+
+void BaseNeuron::processInput(float value)
+{
+	//TODO
+}
