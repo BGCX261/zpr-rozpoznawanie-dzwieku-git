@@ -68,7 +68,7 @@ void Teacher::learningThread(learn::progress_callback progressCallback, const bo
 				progress = 100;
 			else
 			{
-				boost::this_thread::sleep(boost::posix_time::milliseconds(20));//TMP!
+
 			}
 			progressCallback(progress, NULL);
 		}
