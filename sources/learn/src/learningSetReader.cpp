@@ -8,6 +8,7 @@
 /// Lukasz Rychter
 /// Maciej Sikora
 
+#include <stdexcept>
 #include "stdafx.h"
 #include "learningSetReader.h"
 #include "audioSample.h"
@@ -19,7 +20,7 @@ using namespace std;
 using namespace boost::filesystem;
 
 
-bool LearningSetReader::initialize(const std::string& learningSetsFolder) throw (...)
+bool LearningSetReader::initialize(const std::string& learningSetsFolder)
 {
 	filesByCategory_.clear();
 

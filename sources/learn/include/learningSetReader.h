@@ -14,6 +14,7 @@
 
 #include <memory>
 #include <set>
+#include <map>
 #include "learningSample.h"
 #include "waveReader.h"
 
@@ -36,6 +37,6 @@ protected:
 	media::WaveReader										fileReader_; /// file reader object
 };
 
-}; //namespace
+} //namespace
 
 #endif

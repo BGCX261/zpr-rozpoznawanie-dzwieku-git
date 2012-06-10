@@ -29,7 +29,7 @@ public:
 	unsigned int	getCategoriesNum() const throw() { return results_.size(); } /// returns number of result categories
 	float			getCategoryResult(const LABEL& label) const /// retuns percentage fitting for given category. May throw std::invalid_argument if result for given category doesn't exists
 	{  
-		std::map<LABEL, float>::iterator iter;
+        typename std::map<LABEL, float>::iterator iter;
 		iter = results_.find(label);
 		if (iter != results_.end())
 			return iter->second;
@@ -37,14 +37,14 @@ public:
 			throw std::invalid_argument();
 	}
 
-	const std::map<LABEL, float>& getResults() const throw() { return results_; } /// returns const reference to results
+    const std::map<LABEL, float>& getResults() const throw() { return results_; } /// returns const reference to results
 
 protected:
-	std::map<LABEL, float> results_;
+    std::map<LABEL, float> results_;
 
 friend class neur::NeuralNetwork<LABEL>; /// giving direct access to members for the friend class
 };
 
-}; //namespace
+} //namespace
 
 #endif

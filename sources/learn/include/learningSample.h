@@ -24,10 +24,10 @@ public:
 	LearningSample(const boost::shared_ptr<media::FFTSample>& sample, const LABEL& category) : sample_(sample), category_(category) {} /// constructor tha
 
 	void										setSample(const boost::shared_ptr<media::FFTSample>& sample) { sample_ = sample } /// assigns sample
-	const boost::shared_ptr<media::FFTSample>	getSample() const { return sample_ } /// accessor to the sample
+	const boost::shared_ptr<media::FFTSample>	getSample() const { return sample_; } /// accessor to the sample
 
 	void										setCategory(const LABEL& category) { category_ = category; } /// assigns category
-	const LABEL									getCategory() const { return category_ } /// accessor to the category
+	const LABEL									getCategory() const { return category_; } /// accessor to the category
 
 protected:
 	boost::shared_ptr<media::FFTSample>	sample_;	/// smart pointer to the sample
@@ -35,6 +35,6 @@ protected:
 
 };
 
-}; //namespace
+} //namespace
 
 #endif

@@ -32,9 +32,9 @@ public:
 	}
 
 	void setLearningSetsFolder(const std::string& learningSetsFolder) throw() { learningSetsFolder_ = learningSetsFolder; } /// sets folder from which to read learning sets
-	void doLearn(learn::progress_callback progressCallback); /// starts learning process using current set folder with learning sets. Non-blocking (another thread) - raporting learning progress through callback
+    void doLearn(learn::progress_callback progressCallback); /// starts learning process using current set folder with learning sets. Non-blocking (another thread) - raporting learning progress through callback
 	
-	bool abortLearning() throw() { return teacher_.abortLearning(); }; /// aborts learning process. Returns true if process was stopped, false if learning was not in progress
+    bool abortLearning() throw() { return teacher_.abortLearning(); } /// aborts learning process. Returns true if process was stopped, false if learning was not in progress
 	void waitTillAbort() throw(); /// waits till user presses a key to interrupt process
 	bool waitTillLearning(); /// blocks until either neural network will be learned (true returned) or user will abort operation (false returned)
 

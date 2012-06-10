@@ -12,6 +12,7 @@
 #define __FFT_SAMPLE_H__
 
 #include "simpleBuffer.h"
+#include <stdexcept>
 
 namespace media
 {
@@ -57,6 +58,6 @@ protected:
 	unsigned int spectralRange_;
 };
 
-}; //namespace
+} //namespace
 
 #endif

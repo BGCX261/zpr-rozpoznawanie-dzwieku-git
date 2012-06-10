@@ -25,7 +25,7 @@ int main()
 	
 	try
 	{
-		myApp.doLearn(boost::bind(&MyApp::learnCallback, &myApp, _1, _2));
+        myApp.doLearn(boost::bind(&MyApp::learnCallback, &myApp, _1, _2));
 		myApp.waitTillLearning();
 	}
 	catch (std::exception& e)
