@@ -13,6 +13,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
+#include <set>
 #include <list>
 #include <vector>
 #include <map>
@@ -21,5 +22,6 @@
 #include <boost/bind.hpp>
 #include <boost/thread.hpp>
 #include <boost/smart_ptr/shared_ptr.hpp>
+#include <boost/filesystem.hpp>
 
 #endif

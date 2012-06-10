@@ -23,6 +23,7 @@ const char* WaveReader::wav_description_value_ = "fmt ";
 const char* WaveReader::wav_data_id_value_ = "data";
 const long	WaveReader::wav_pcm_format_tag = 1;
 
+
 void WaveReader::openFile(const std::string& file)
 {
 	if (file_.is_open())
@@ -111,11 +112,13 @@ void WaveReader::openFile(const std::string& file)
 		throw std::runtime_error("Bad file structure - bad 'id' value");
 }
 
+
 void WaveReader::closeFile() 
 {
 	if (file_.is_open())
 		file_.close();
 }
+
 
 void WaveReader::readTo(AudioSample& buffer, unsigned long audioTime)
 {
@@ -155,24 +158,4 @@ void WaveReader::readTo(AudioSample& buffer, unsigned long audioTime)
 	}
 	else
 		throw std::logic_error("Tried to read from file which isn't opened");
-}
-
-WaveReader::dword WaveReader::get_data_size() const
-{
-	return data_size_;
-}
-
-WaveReader::dword WaveReader::get_sample_rate() const
-{
-	return sample_rate_;
-}
-
-WaveReader::word WaveReader::get_channels() const
-{
-	return channels_;
-}
-
-WaveReader::word WaveReader::get_bits_per_sample() const
-{
-	return bits_per_sample_;
 }

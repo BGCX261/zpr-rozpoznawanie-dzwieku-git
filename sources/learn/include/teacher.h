@@ -27,7 +27,7 @@ typedef const boost::function<void(float progress, const std::exception* e)>&		p
 class Teacher
 {
 public:
-	Teacher(float spectralResolution=1, unsigned short maximumFrequency=16000) : spectralResolution_(spectralResolution), maximumFrequency_(maximumFrequency), abortFlag_(false), learningDone_(false) {}
+	Teacher(float spectralResolution=2, unsigned short maximumFrequency=16000) : spectralResolution_(spectralResolution), maximumFrequency_(maximumFrequency), abortFlag_(false), learningDone_(false) {}
 	
 	void doLearn(const std::string& learningSetsFolder, learn::progress_callback progressCallback, const boost::shared_ptr<neur::NeuralNetwork<> >& neuralNetwork); /// starts learning process using given folder with learning sets. Non-blocking (another thread) - raporting learning progress through callback
 	bool abortLearning() throw(); /// aborts learning process. Returns true if process was stopped, false if learning was not in progress

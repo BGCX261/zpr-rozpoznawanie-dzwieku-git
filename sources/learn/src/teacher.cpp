@@ -53,17 +53,23 @@ void Teacher::learningThread(learn::progress_callback progressCallback, const bo
 		if (!learningSetReader_->initialize(learningSetsFolder))
 			throw std::runtime_error("No appropirate file structure found at given path");
 		
-		std::auto_ptr< std::vector<std::string> > categories = learningSetReader_->getCategories();
+		std::auto_ptr< std::set<std::string> > categories = learningSetReader_->getCategories();
 		if (!categories.get() || !categories->size())
 			throw std::runtime_error("No appropirate file structure found at given path");
 
-		neuralNetwork->initializeNetwork((unsigned long)(maximumFrequency/spectralResolution), categories);
+		//neuralNetwork->initializeNetwork((unsigned long)(maximumFrequency/spectralResolution), categories);
 
+		unsigned short sampleTime = (unsigned short)(1000/spectralResolution);
 
 		while (!abortFlag_ && progress < 100)
 		{
-			boost::this_thread::sleep(boost::posix_time::milliseconds(50));//TMP!
-			++progress;
+			auto_ptr< LearningSample<string> > learningSample = learningSetReader_->getNextLearningSample(sampleTime, &progress);
+			if (!learningSample.get())
+				progress = 100;
+			else
+			{
+				boost::this_thread::sleep(boost::posix_time::milliseconds(20));//TMP!
+			}
 			progressCallback(progress, NULL);
 		}
 		

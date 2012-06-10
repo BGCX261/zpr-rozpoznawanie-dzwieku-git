@@ -24,7 +24,9 @@ public:
 	SoundReader() {}
 	virtual ~SoundReader() {}
 
-	virtual void readTo(AudioSample& buffer, unsigned long audioTime=0) = 0;
+	/// Function reads audioTime miliseconds of audio data and writes it
+	/// to the passed buffer. If audioTime is 0 (default) then it reads the whole file
+	virtual void readTo(AudioSample& buffer, unsigned long audioTime=0) = 0; 
 };
 
 }; //namespace

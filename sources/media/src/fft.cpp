@@ -54,7 +54,7 @@ void FFT::deinitialize() throw()
 }
 
 
-auto_ptr<FFTSample> calculateFFT(const AudioSample& audio)
+auto_ptr<FFTSample> FFT::calculateFFT(const AudioSample& audio)
 {
 	return auto_ptr<FFTSample>(new FFTSample); //TODO
 }

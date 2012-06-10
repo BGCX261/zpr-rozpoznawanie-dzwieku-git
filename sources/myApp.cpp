@@ -9,17 +9,20 @@
 #include "stdafx.h"
 #include "myApp.h"
 #include "mygetch.h"
+#include "fft.h"
 
 using namespace std;
 
 
 MyApp::MyApp()
 {
+	media::FFT::initialize();
 	printProgramHeader();
 }
 
 MyApp::~MyApp()
 {
+	media::FFT::deinitialize();
 #ifdef _WIN32
 	cout << endl << endl;
 	system("PAUSE");
@@ -91,7 +94,7 @@ bool MyApp::waitTillLearning()
 
 void MyApp::learnCallback(float progress, const std::exception* e)
 {
-	cout << "Learning progress: " << progress << "%\r";
+	cout << "Learning progress: " << fixed << setprecision(1) << progress << "%\r";
 
 	if (e)
 	{

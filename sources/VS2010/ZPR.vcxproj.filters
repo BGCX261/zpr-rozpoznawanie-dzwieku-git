@@ -56,9 +56,6 @@
     <ClCompile Include="..\neur\src\neuron.cpp">
       <Filter>neur\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\media\src\soundReader.cpp">
-      <Filter>media\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\media\src\waveReader.cpp">
       <Filter>media\Source Files</Filter>
     </ClCompile>
