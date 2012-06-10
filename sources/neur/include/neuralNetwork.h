@@ -27,7 +27,7 @@ template <typename LABEL=std::string>
 class NeuralNetwork
 {
 public:
-	void initializeNetwork(unsigned long inputNeuronsNum, const std::auto_ptr< std::set<LABEL> >& outputCategories); /// initializes neural network with given number of inputs and outputs as given categories
+	void initializeNetwork(unsigned long inputNeuronsNum, const std::vector<unsigned long>& hiddenLayersNeuronNums, const std::auto_ptr< std::set<LABEL> >& outputCategories); /// initializes neural network with given number of inputs and outputs as given categories
 	
 	void							learnPattern(const std::vector<float>& inputSignals, const ResultSet<LABEL>& desirableResult); /// teaches neural network to recognize given input and produce desirable result mapping
 	std::auto_ptr<ResultSet<LABEL>>	recognizePattern(const std::vector<float>& inputSignals); /// propagates input signals through neural network and returns recognition results
