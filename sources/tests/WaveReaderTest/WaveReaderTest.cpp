@@ -1,5 +1,7 @@
 // generating main function
 #define BOOST_TEST_MAIN
+// enabling dynamic linking
+#define BOOST_TEST_DYN_LINK
 
 #include <boost/test/unit_test.hpp>
 #include "waveReader.h"

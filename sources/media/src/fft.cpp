@@ -13,6 +13,7 @@
 
 #define FFTW_SINGLE
 #include "fftw3.h"
+#include <cmath>
 
 using namespace media;
 using namespace std;
