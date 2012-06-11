@@ -1,0 +1,22 @@
+var NAVTREEINDEX1 =
+{
+"neur_test_8cpp.html":[2,0,21],
+"neur_test_8cpp.html#a6b2a3852db8bb19ab6909bac01859985":[2,0,21,0],
+"neur_test_8cpp.html#abf71b368c34b9db9b77eca86668db5dc":[2,0,21,1],
+"neural_network_8h.html":[2,0,18],
+"neural_network_impl_8h.html":[2,0,19],
+"neuron_connection_8h.html":[2,0,20],
+"output_layer_neuron_8h.html":[2,0,22],
+"pages.html":[],
+"result_set_8h.html":[2,0,23],
+"simple_buffer_8h.html":[2,0,24],
+"simple_buffer_impl_8h.html":[2,0,25],
+"sound_reader_8h.html":[2,0,26],
+"stdafx_8cpp.html":[2,0,27],
+"stdafx_8h.html":[2,0,28],
+"teacher_8cpp.html":[2,0,29],
+"teacher_8h.html":[2,0,30],
+"teacher_8h.html#a41d73cd041b9b00df93d71c74f374593":[2,0,30,1],
+"wave_reader_8cpp.html":[2,0,32],
+"wave_reader_8h.html":[2,0,33]
+};

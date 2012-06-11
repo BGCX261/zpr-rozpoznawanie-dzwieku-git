@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['layer',['Layer',['../classneur_1_1_layer.html',1,'neur']]],
+  ['layer',['Layer',['../classneur_1_1_base_neuron.html#a834e4e869446be644f61b4b456604f31',1,'neur::BaseNeuron::Layer()'],['../classneur_1_1_layer.html#a4ad1d02b46670657795c945246fadfe0',1,'neur::Layer::Layer()'],['../classneur_1_1_layer.html#a6e01ef5254c569fedcedd4093a0efa35',1,'neur::Layer::Layer(const BaseNeuron &amp;neuronModel, unsigned long neuronsNum)']]],
+  ['layer_2ecpp',['layer.cpp',['../layer_8cpp.html',1,'']]],
+  ['layer_2eh',['layer.h',['../layer_8h.html',1,'']]],
+  ['layers_5f',['layers_',['../classneur_1_1_neural_network.html#a7b2d7d7352b48e4f3d3fbb90fe13e56f',1,'neur::NeuralNetwork']]],
+  ['learn',['learn',['../namespacelearn.html',1,'']]],
+  ['learncallback',['learnCallback',['../class_my_app.html#a1034b4c6c2e1b592c3348e510e34147d',1,'MyApp']]],
+  ['learningdone_5f',['learningDone_',['../classlearn_1_1_teacher.html#a1dffa6ed860ae048af2c84f0773f98b2',1,'learn::Teacher']]],
+  ['learningfactor_5f',['learningFactor_',['../class_my_app.html#a4856d67b469120ce6c83842d9b5f7cf7',1,'MyApp::learningFactor_()'],['../classneur_1_1_neural_network.html#a4310d2e5e90d25e40af7be099c6c030c',1,'neur::NeuralNetwork::learningFactor_()']]],
+  ['learningsample',['LearningSample',['../classlearn_1_1_learning_sample.html',1,'learn']]],
+  ['learningsample',['LearningSample',['../classlearn_1_1_learning_sample.html#a8eacf3f3f6b1e258e6704bdd0d71a9ce',1,'learn::LearningSample::LearningSample()'],['../classlearn_1_1_learning_sample.html#a210aa7fd797368932e5583e91fb799c2',1,'learn::LearningSample::LearningSample(const boost::shared_ptr&lt; media::FFTSample &gt; &amp;sample, const LABEL &amp;category)']]],
+  ['learningsample_2eh',['learningSample.h',['../learning_sample_8h.html',1,'']]],
+  ['learningsamplecounter_5f',['learningSampleCounter_',['../classlearn_1_1_learning_set_reader.html#a6d88a45decb8c98fd000709ee1cbeb93',1,'learn::LearningSetReader']]],
+  ['learningsampleiter_5f',['learningSampleIter_',['../classlearn_1_1_learning_set_reader.html#afbc4152c9d6ed2c878efa245f1372e4a',1,'learn::LearningSetReader']]],
+  ['learningsetreader',['LearningSetReader',['../classlearn_1_1_learning_set_reader.html',1,'learn']]],
+  ['learningsetreader_2ecpp',['learningSetReader.cpp',['../learning_set_reader_8cpp.html',1,'']]],
+  ['learningsetreader_2eh',['learningSetReader.h',['../learning_set_reader_8h.html',1,'']]],
+  ['learningsetreader_5f',['learningSetReader_',['../classlearn_1_1_teacher.html#a4fc11b6be1cbc3ea746945127131b620',1,'learn::Teacher']]],
+  ['learningsetsfolder_5f',['learningSetsFolder_',['../class_my_app.html#ad50cb3414a16cccb21beafc0537c7f87',1,'MyApp']]],
+  ['learningthread',['learningThread',['../classlearn_1_1_teacher.html#a6e0765469ec0fe65abb8542a25234648',1,'learn::Teacher']]],
+  ['learningvalue_5f',['learningValue_',['../classneur_1_1_base_neuron.html#ad771b5db1bc2a6986b513ad9dd198902',1,'neur::BaseNeuron']]],
+  ['learnpattern',['learnPattern',['../classneur_1_1_neural_network.html#a54c26a96bf74528c4a499f8472a567a3',1,'neur::NeuralNetwork']]],
+  ['left_5f',['left_',['../classneur_1_1_neuron_connection.html#add6e7c14d87405d6b8ddb2ebc7a41a4f',1,'neur::NeuronConnection']]]
+];
