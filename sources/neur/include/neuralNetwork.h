@@ -39,7 +39,7 @@ public:
 	std::auto_ptr< ResultSet<LABEL> >	recognizePattern(const std::vector<float>& inputSignals); /// propagates input signals through neural network and returns recognition results
 
 	void setLearningFactor(float learningFactor) throw() { learningFactor_ = learningFactor; }
-	void getLearningFactor() const throw() { return learningFactor_; }
+	float getLearningFactor() const throw() { return learningFactor_; }
 
 protected:
 	void resetNeuronsValue(); /// zeroes neuron's value, so next iteration of signal propagation may be done
