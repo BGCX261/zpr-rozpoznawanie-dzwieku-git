@@ -21,23 +21,21 @@ using namespace std;
 int main()
 {
 	MyApp& myApp = MyApp::getInstance();
-	myApp.setLearningSetsFolder("sounds/learn");
-	
+
 	try
 	{
-        myApp.doLearn(boost::bind(&MyApp::learnCallback, &myApp, _1, _2));
-		myApp.waitTillLearning();
+        myApp.doWork();
 	}
 	catch (std::exception& e)
 	{
 		cout << endl 
-			 << "main(): Exception occured in learning process - \"" << e.what() << "\"" 
+			 << "main(): Exception occured - \"" << e.what() << "\"" 
 			 << endl;
 	}
 	catch(...)
 	{
 			cout << endl 
-			 << "main(): Unknown exception occured in learning process" 
+			 << "main(): Unknown exception occured" 
 			 << endl;
 	}
 

@@ -23,6 +23,7 @@ using namespace boost::filesystem;
 bool LearningSetReader::initialize(const std::string& learningSetsFolder)
 {
 	filesByCategory_.clear();
+	categories_.clear();
 
 	path root_path(learningSetsFolder);
 	if (!is_directory(root_path))
@@ -33,13 +34,15 @@ bool LearningSetReader::initialize(const std::string& learningSetsFolder)
 		const path& dir_path = dir_iter->path();
 		if (is_directory(dir_path))
 		{
+			categories_.insert(dir_path.filename().string());
+
 			//treat each folder in given patch as category with name as folder name and assign to it files inside (including subfolders, recursively)
 			for (recursive_directory_iterator file_iter(dir_path); file_iter != recursive_directory_iterator(); ++file_iter)
 			{
 				const path& file_path = file_iter->path();
 				if (is_regular_file(file_path))
 				{
-					filesByCategory_.insert(pair<string,string>(dir_path.filename().string(), file_path.string()));
+					filesByCategory_.insert(pair<string,string>(file_path.string(), dir_path.filename().string()));
 				}			
 			}
 		}
@@ -54,13 +57,7 @@ bool LearningSetReader::initialize(const std::string& learningSetsFolder)
 
 auto_ptr< set<string> > LearningSetReader::getCategories() const
 {
-	auto_ptr< std::set<string> > categories(new set<string>);
-
-	std::multimap<std::string, std::string>::const_iterator citer;
-	for (citer = filesByCategory_.begin(); citer != filesByCategory_.end(); ++citer)
-		categories->insert(citer->first);
-
-	return categories;
+	return auto_ptr< set<string> >(new set<string>(categories_));
 }
 
 
@@ -72,9 +69,9 @@ auto_ptr< LearningSample<string> > LearningSetReader::getNextLearningSample(unsi
 
 	while (learningSampleIter_ != filesByCategory_.end() && !audioSample.getSize())
 	{
-		category = learningSampleIter_->first;
-		filePath = learningSampleIter_->second;
-
+		filePath = learningSampleIter_->first;
+		category = learningSampleIter_->second;
+		
 		if (!fileReader_.is_open())
 			fileReader_.openFile(filePath);
 		

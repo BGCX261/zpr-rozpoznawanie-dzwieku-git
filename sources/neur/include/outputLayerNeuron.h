@@ -54,7 +54,9 @@ public:
 				continue;
 			}
 
-			double backpropagationOutput = desiredValue_ - value_;
+			double backpropagationOutput = (desiredValue_ - value_)*(desiredValue_ - value_)/1000.0; /// output error value
+			if (desiredValue_ < value_)
+				backpropagationOutput *= -1;
 			connPtr->right_->processLearningInput((float)(backpropagationOutput * connPtr->weight_));
 			connPtr->weight_ += backpropagationOutput * learningFactor;
 
