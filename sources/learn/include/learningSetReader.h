@@ -14,7 +14,7 @@
 
 #include <memory>
 #include <set>
-#include <hash_map>
+#include <map>
 #include "learningSample.h"
 #include "waveReader.h"
 
@@ -30,8 +30,8 @@ public:
 	std::auto_ptr< LearningSample<std::string> > getNextLearningSample(unsigned short sampleTimeMs, float* outProgress=NULL); /// when class is initialized, every time it is called it returns another learning sample of requested length. Progress may be reported to the outProgress variable pointer. May throw exceptions from FileReader
 
 protected:
-	std::hash_map<std::string, std::string>					filesByCategory_;		/// assigns category labels to the file pathes
-	std::hash_map<std::string, std::string>::const_iterator	learningSampleIter_;	/// iterator that points to a file path to be read next
+	std::map<std::string, std::string>					filesByCategory_;		/// assigns category labels to the file pathes
+	std::map<std::string, std::string>::const_iterator	learningSampleIter_;	/// iterator that points to a file path to be read next
 
 	std::set<std::string>	categories_; /// set of category names	
 	
