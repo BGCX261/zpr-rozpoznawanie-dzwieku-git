@@ -11,6 +11,7 @@
 #include "mygetch.h"
 #include "fft.h"
 #include "waveReader.h"
+#include <iostream>
 
 using namespace std;
 
@@ -64,7 +65,7 @@ void MyApp::doWork()
 		{
 			c = mygetch();
 		}
-		while (c != '1' && c != '2' && c != '3' && c != 27 && c != 13);
+		while (c != '1' && c != '2' && c != '3' && c != 27 && c != 13 && c != 10);
 
 		switch (c)
 		{
@@ -76,19 +77,20 @@ void MyApp::doWork()
 				cout << "Set learning factor: ";
 				cin >> learningFactor;
 				break;
+			case 10: /// enter on unix
 			case 13: /// enter
 			case '3':
 				break;
 			case 27:
-				cout << "Escape pressed - exiting";
+				cout << "Escape pressed - exiting" << endl;
 				break;
 			default:
 				cout << "Unknown option" << endl;
 		}
 	}
-	while (c != '3' && c != 13 && c != 27);
+	while (c != '3' && c != 13 && c != 10 && c != 27);
 
-	if (c == '3' || c == 13)
+	if (c == '3' || c == 13 || c == 10)
 	{
 		setLearningSetsFolder(learningSetsFolder);
 		setLearningFactor(learningFactor);
@@ -101,7 +103,6 @@ void MyApp::doWork()
 		do
 		{
 			cout << endl;
-			cout << endl;
 			cout << "1. Choose wave file to recognize (current=\"" << fileToRecognize << "\"):" << endl;
 			cout << "2. Recognize (press enter)" << endl;
 			cout << "3. Exit (press escape)" << endl;
@@ -111,7 +112,7 @@ void MyApp::doWork()
 			{
 				c = mygetch();
 			}
-			while (c != '1' && c != '2' && c != '3' && c != 27 && c != 13);
+			while (c != '1' && c != '2' && c != '3' && c != 27 && c != 13 && c != 10);
 
 			switch (c)
 			{
@@ -119,6 +120,7 @@ void MyApp::doWork()
 					cout << "Choose wave file to recognize:" << endl;
 					cin >> fileToRecognize;
 					break;
+				case 10: /// enter on unix
 				case 13: /// enter
 				case '2':
 					doRecognizeAndPresent(fileToRecognize);
@@ -127,7 +129,7 @@ void MyApp::doWork()
 					cout << "Exiting";
 					break;
 				case 27:
-					cout << "Escape pressed - exiting";
+					cout << "Escape pressed - exiting" << endl;
 					break;
 				default:
 					cout << "Unknown option" << endl;
@@ -180,7 +182,8 @@ bool MyApp::waitTillLearning()
 	if (!teacher_.wasLearningAborted())
 	{
 		cout << endl 
-			 << "Press any key to continue...";
+		     << "Press any key to continue..."
+		     << endl;
 
 		stopAbortLoop_ = true;
 		abortThread.join();

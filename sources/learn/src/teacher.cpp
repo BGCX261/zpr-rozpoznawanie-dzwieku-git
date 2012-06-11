@@ -94,7 +94,7 @@ void Teacher::learningThread(learn::progress_callback progressCallback, const bo
 	{
 		progressCallback(progress, &e);
 	}
-    catch()
+    	catch(...)
 	{
 		std::bad_exception e;
 		progressCallback(progress, &e);

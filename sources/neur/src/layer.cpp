@@ -10,6 +10,7 @@
 
 #include "stdafx.h"
 #include <boost/bind.hpp>
+#include <stdexcept>
 #include "layer.h"
 
 using namespace neur;
@@ -21,13 +22,13 @@ void Layer::initialize(const BaseNeuron& neuronModel, unsigned long neuronsNum)
 	neurons_.clear();
 
 	for (unsigned long i=0; i<neuronsNum; ++i)
-		neurons_.push_back(std::auto_ptr<BaseNeuron>(neuronModel.clone()));
+		neurons_.push_back(boost::shared_ptr<BaseNeuron>(neuronModel.clone()));
 }
 
 
 void Layer::connectWithNextLayer(Layer& nextLayer)
 {
-	std::list< std::auto_ptr<BaseNeuron> >::iterator left_layer_iter;
+	std::list< boost::shared_ptr<BaseNeuron> >::iterator left_layer_iter;
 	for (left_layer_iter=neurons_.begin(); left_layer_iter!=neurons_.end(); ++left_layer_iter)
 	{
 		BaseNeuron* leftLayerNeuron = left_layer_iter->get();
@@ -36,7 +37,7 @@ void Layer::connectWithNextLayer(Layer& nextLayer)
 
 		leftLayerNeuron->frontConnection_.clear();
 
-		std::list< std::auto_ptr<BaseNeuron> >::iterator right_layer_iter;
+		std::list< boost::shared_ptr<BaseNeuron> >::iterator right_layer_iter;
 		for (right_layer_iter=nextLayer.neurons_.begin(); right_layer_iter!=nextLayer.neurons_.end(); ++right_layer_iter)
 		{
 			BaseNeuron* rightLayerNeuron = right_layer_iter->get();
@@ -54,7 +55,7 @@ void Layer::connectWithNextLayer(Layer& nextLayer)
 }
 
 
-void Layer::resetNeuronsValue()
+void Layer::resetNeuronsValue() throw()
 {
 	for_each(neurons_.begin(), neurons_.end(), boost::bind(&BaseNeuron::resetValue, _1));
 }

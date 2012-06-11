@@ -16,6 +16,7 @@
 #include <set>
 #include <list>
 #include <memory> // for auto_ptr
+#include <boost/smart_ptr/shared_ptr.hpp>
 #include "layer.h"
 #include "resultSet.h"
 #include "inputLayerNeuron.h"
@@ -46,7 +47,7 @@ protected:
 
 	float learningFactor_; /// learning factor. Has great influence to the learning process
 
-	std::list<std::auto_ptr<Layer> > layers_; /// list of pointers to layers of the neural network
+	std::list< boost::shared_ptr<Layer> > layers_; /// list of pointers to layers of the neural network
 };
 
 #include "neuralNetworkImpl.h"

@@ -13,7 +13,7 @@
 #define __LAYER_H__
 
 #include <list>
-#include <memory> // for auto_ptr
+#include <boost/smart_ptr/shared_ptr.hpp>
 #include "baseNeuron.h"
 
 namespace neur
@@ -37,7 +37,7 @@ public:
 	unsigned long getNeuronsNum() const throw() { return neurons_.size(); }
 
 protected:
-	std::list< std::auto_ptr<BaseNeuron> > neurons_; ///< list of pointers to neurons from this layer
+	std::list< boost::shared_ptr<BaseNeuron> > neurons_; ///< list of pointers to neurons from this layer
 
 template <typename LABEL>
 friend class NeuralNetwork; /// giving direct access to members for the friend class
