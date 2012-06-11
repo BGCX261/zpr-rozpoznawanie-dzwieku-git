@@ -62,7 +62,7 @@ void Teacher::learningThread(learn::progress_callback progressCallback, const bo
 			throw std::runtime_error("No appropirate file structure found at given path");
 
 		std::vector<unsigned long> hiddenLayersNeuronNums;
-		unsigned long hiddenLayerNeuronsNum = 100; /// TODO - make it changable
+		unsigned long hiddenLayerNeuronsNum = 10; /// TODO - make it changable
 		hiddenLayersNeuronNums.push_back(hiddenLayerNeuronsNum);
 		neuralNetwork->initializeNetwork((unsigned long)(maximumFrequency/spectralResolution), hiddenLayersNeuronNums, categories);
 

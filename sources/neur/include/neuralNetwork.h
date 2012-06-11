@@ -30,7 +30,7 @@ template <typename LABEL=std::string>
 class NeuralNetwork
 {
 public:
-	NeuralNetwork(float learningFactor=0.1f) :learningFactor_(learningFactor) {}
+	NeuralNetwork(float learningFactor=0.1f) : learningFactor_(learningFactor) {}
 
 	void initializeNetwork(unsigned long inputNeuronsNum, const std::vector<unsigned long>& hiddenLayersNeuronNums, const std::auto_ptr< std::set<LABEL> >& outputCategories); /// initializes neural network with given number of inputs and outputs as given categories
 	
