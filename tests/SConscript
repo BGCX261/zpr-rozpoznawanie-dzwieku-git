@@ -1,0 +1,15 @@
+# SCons script using dynamic linking with boost_unit_test_framework
+import platform
+
+env = Environment()
+
+env['CPPPATH'] = ['.', 'media/include', '../boost']
+    
+if(platform.system() == "Windows"):
+    env['LIBPATH'] = '../boost/stage/lib'
+    env.Append(CPPFLAGS = ' /EHsc /MD')
+else:
+    env['LIBS'] = ['boost_unit_test_framework']
+
+env.Program(target = '../WaveReaderTest', source = ['../sources/media/src/waveReader.cpp',
+	'../sources/media/src/audioSample.cpp', '../sources/tests/WaveReaderTest/WaveReaderTest.cpp'])
