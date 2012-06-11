@@ -17,6 +17,7 @@
 #include <list>
 #include <vector>
 #include <map>
+#include <algorithm>
 #include <memory> // for auto_ptr
 #include <math.h>
 #include <boost/function.hpp>

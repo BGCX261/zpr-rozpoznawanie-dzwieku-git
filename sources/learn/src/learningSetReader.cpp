@@ -8,12 +8,13 @@
 /// Lukasz Rychter
 /// Maciej Sikora
 
-#include <stdexcept>
 #include "stdafx.h"
 #include "learningSetReader.h"
 #include "audioSample.h"
 #include "fft.h"
 #include <boost/filesystem.hpp>
+#include <algorithm>
+#include <stdexcept>
 
 using namespace learn;
 using namespace std;
@@ -42,7 +43,7 @@ bool LearningSetReader::initialize(const std::string& learningSetsFolder)
 				const path& file_path = file_iter->path();
 				if (is_regular_file(file_path))
 				{
-					filesByCategory_.insert(pair<string,string>(file_path.string(), dir_path.filename().string()));
+					filesByCategory_.push_back(pair<string,string>(file_path.string(), dir_path.filename().string()));
 				}			
 			}
 		}
@@ -51,6 +52,9 @@ bool LearningSetReader::initialize(const std::string& learningSetsFolder)
 	learningSampleIter_ = filesByCategory_.begin();
 	learningSampleCounter_ = 0;
 
+	/// do some shuffle for better learning process
+	random_shuffle(filesByCategory_.begin(), filesByCategory_.end());
+	
 	return !filesByCategory_.empty();
 }
 
