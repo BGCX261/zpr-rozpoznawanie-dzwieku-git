@@ -27,7 +27,7 @@ public:
 	virtual ~BaseNeuron() {}
 
 	virtual void propagateSignal() {} /// propagates signals to every connected neuron
-	virtual void propagateLearningResponse(float learningFactor=0.1f) {} /// back propagates learning response every connected neuron
+	virtual void propagateLearningResponse(float learningFactor=0.1f) {} /// back propagates learning response to every connected neuron
 	
 	virtual void processInput(float inputValue); /// processes input signal changing neuron's internal value
 	virtual void processLearningInput(float inputValue); /// processes backpropagated learning input signal changing neuron's internal value

@@ -15,6 +15,11 @@
 template <typename LABEL>
 void NeuralNetwork<LABEL>::initializeNetwork(unsigned long inputNeuronsNum, const std::vector<unsigned long>& hiddenLayersNeuronNums, const std::auto_ptr< std::set<LABEL> >& outputCategories)
 {
+	layers_.clear();
+
+	if (inputNeuronsNum == 0)
+		throw std::invalid_argument("Neurons number for input layer cannot be 0");
+
 	/// adding input layer
 	boost::shared_ptr<Layer> inputLayer(new Layer(InputLayerNeuron(), inputNeuronsNum));
 	layers_.push_back(inputLayer);
@@ -22,13 +27,22 @@ void NeuralNetwork<LABEL>::initializeNetwork(unsigned long inputNeuronsNum, cons
 	/// adding hidden layers
 	for (std::vector<unsigned long>::const_iterator citer=hiddenLayersNeuronNums.begin(); citer!=hiddenLayersNeuronNums.end(); ++citer)
 	{
-		boost::shared_ptr<Layer> hiddenLayer(new Layer(HiddenLayerNeuron(), *citer));
+		unsigned long layerNeuronsNum = *citer;
+		if (layerNeuronsNum == 0)
+			throw std::invalid_argument("Neurons number for hidden layer cannot be 0");
+
+		boost::shared_ptr<Layer> hiddenLayer(new Layer(HiddenLayerNeuron(), layerNeuronsNum));
 		layers_.push_back(hiddenLayer);
 	}
 
 	/// adding output layer
-	boost::shared_ptr<Layer> outputLayer(new Layer(OutputLayerNeuron<LABEL>(), outputCategories->size()));
+	unsigned long outputNeuronsNum = outputCategories->size();
+	if (outputNeuronsNum == 0)
+		throw std::invalid_argument("There must be at least one output category (two to do anything practical)");
+
+	boost::shared_ptr<Layer> outputLayer(new Layer(OutputLayerNeuron<LABEL>(), outputNeuronsNum));
 	layers_.push_back(outputLayer);
+
 
 	/// assigns categories to neurons from output layer
 	std::list< boost::shared_ptr<BaseNeuron> >& outputLayerNeurons = layers_.back()->neurons_;
@@ -46,6 +60,7 @@ void NeuralNetwork<LABEL>::initializeNetwork(unsigned long inputNeuronsNum, cons
 
 		outputNeuron->setCategory(*category_iter);
 	}
+
 
 	/// Connecting layers to each other
 	for (std::list< boost::shared_ptr<Layer> >::iterator iter=layers_.begin(); iter!=--layers_.end(); ++iter)
