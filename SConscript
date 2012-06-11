@@ -12,7 +12,7 @@ if(platform.system() == "Windows"):
 else:
     env['LIBS'] = ['boost_thread', 'boost_unit_test_framework']
 
-env.Program(target = '../ZPR', source = ['main.cpp', 'myApp.cpp', 'neur/src/neuron.cpp',
+env.Program(target = '../ZPR', source = ['main.cpp', 'myApp.cpp', 'neur/src/baseNeuron.cpp',
 	'media/src/audioSample.cpp', 'media/src/fft.cpp', 'media/src/waveReader.cpp',
     'learn/src/learningSetReader.cpp', 'learn/src/teacher.cpp', 'tests/neurTest/neurTest.cpp'])
 

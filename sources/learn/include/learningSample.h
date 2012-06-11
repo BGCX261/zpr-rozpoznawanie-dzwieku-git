@@ -23,7 +23,7 @@ public:
 	LearningSample() {} /// default constructor
 	LearningSample(const boost::shared_ptr<media::FFTSample>& sample, const LABEL& category) : sample_(sample), category_(category) {} /// constructor that sets sample and cathegory
 
-	void										setSample(const boost::shared_ptr<media::FFTSample>& sample) { sample_ = sample } /// assigns sample
+    void										setSample(const boost::shared_ptr<media::FFTSample>& sample) { sample_ = sample; } /// assigns sample
 	const boost::shared_ptr<media::FFTSample>	getSample() const { return sample_; } /// accessor to the sample
 
 	void										setCategory(const LABEL& category) { category_ = category; } /// assigns category

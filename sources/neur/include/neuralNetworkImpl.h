@@ -33,7 +33,7 @@ void NeuralNetwork<LABEL>::initializeNetwork(unsigned long inputNeuronsNum, cons
 	/// assigns categories to neurons from output layer
 	std::list<std::auto_ptr<BaseNeuron> >& outputLayerNeurons = layers_.back()->neurons_;
 	
-	std::set<LABEL>::const_iterator category_iter = outputCategories.get()->begin();
+    typename std::set<LABEL>::const_iterator category_iter = outputCategories.get()->begin();
 	std::list<std::auto_ptr<BaseNeuron> >::iterator neuron_iter=outputLayerNeurons.begin();
 	for (; neuron_iter!=outputLayerNeurons.end()/* && category_iter!=outputCategories.end()*/; ++neuron_iter, ++category_iter)
 	{
