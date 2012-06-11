@@ -35,8 +35,8 @@ public:
 	bool isLearningDone() const throw() { return learningDone_; } /// returns learning done flag
 	bool wasLearningAborted() const throw() { return abortFlag_; } /// returns learning done flag
 
-	void setSpectralResolution(float spectralResolution) throw() { spectralResolution_ = spectralResolution; }; /// sets desired spectral resolution [Hz] for teaching process. Higher resolution needs longer samples and may be less effective
-	void setMaximumFrequency(unsigned short maximumFrequency) throw() { maximumFrequency_ = maximumFrequency; }; /// sets high limit of frequency range [Hz] in teaching process. Higher values need samples with higher sample rates and may introduce undesirable disturbance
+    void setSpectralResolution(float spectralResolution) throw() { spectralResolution_ = spectralResolution; } /// sets desired spectral resolution [Hz] for teaching process. Higher resolution needs longer samples and may be less effective
+    void setMaximumFrequency(unsigned short maximumFrequency) throw() { maximumFrequency_ = maximumFrequency; } /// sets high limit of frequency range [Hz] in teaching process. Higher values need samples with higher sample rates and may introduce undesirable disturbance
 
 protected:
 	void learningThread(learn::progress_callback progressCallback, const boost::shared_ptr< neur::NeuralNetwork<> > neuralNetwork, const std::string learningSetsFolder, float spectralResolution, unsigned short maximumFrequency); /// function of thread doing learning process
@@ -51,6 +51,6 @@ protected:
 	std::auto_ptr<LearningSetReader>	learningSetReader_;
 };
 
-}; //namespace
+} //namespace
 
 #endif

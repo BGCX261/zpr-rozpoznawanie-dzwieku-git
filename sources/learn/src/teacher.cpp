@@ -10,6 +10,7 @@
 
 #include "stdafx.h"
 #include "teacher.h"
+#include <string>
 
 using namespace learn;
 using namespace std;
@@ -42,7 +43,7 @@ bool Teacher::abortLearning() throw()
 }
 
 
-void Teacher::learningThread(learn::progress_callback progressCallback, const boost::shared_ptr< neur::NeuralNetwork<> > neuralNetwork, const string learningSetsFolder, float spectralResolution, unsigned short maximumFrequency)
+void Teacher::learningThread(learn::progress_callback progressCallback, const boost::shared_ptr<neur::NeuralNetwork<> > neuralNetwork, const string learningSetsFolder, float spectralResolution, unsigned short maximumFrequency)
 {
 	float progress = 0;
 
@@ -93,7 +94,7 @@ void Teacher::learningThread(learn::progress_callback progressCallback, const bo
 	{
 		progressCallback(progress, &e);
 	}
-	catch(...)
+    catch()
 	{
 		std::bad_exception e;
 		progressCallback(progress, &e);

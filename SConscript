@@ -17,3 +17,6 @@ env.Program(target = '../ZPR', source = ['main.cpp', 'myApp.cpp',
 	'media/src/audioSample.cpp', 'media/src/fft.cpp', 'media/src/waveReader.cpp',
     'learn/src/learningSetReader.cpp', 'learn/src/teacher.cpp', 
 	'neur/src/baseNeuron.cpp', 'neur/src/layer.cpp'])
+
+env.Program(target = '../WaveReaderTest', source = ['media/src/waveReader.cpp',
+	'media/src/audioSample.cpp', 'tests/WaveReaderTest/WaveReaderTest.cpp'])
