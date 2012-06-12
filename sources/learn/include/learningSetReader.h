@@ -28,6 +28,7 @@ public:
 	std::auto_ptr< std::set<std::string> > getCategories() const; /// returns smart pointer to vector of learning categories represented as text labels (taken from folder names)
 
 	std::auto_ptr< LearningSample<std::string> > getNextLearningSample(unsigned short sampleTimeMs, float* outProgress=NULL); /// when class is initialized, every time it is called it returns another learning sample of requested length. Progress may be reported to the outProgress variable pointer. May throw exceptions from FileReader
+	void resetSampleCounter() throw(); /// shuffles files and allows to iterate throught them from begining
 
 protected:
 	std::vector< std::pair<std::string, std::string> >					filesByCategory_;		/// assigns category labels to the file pathes

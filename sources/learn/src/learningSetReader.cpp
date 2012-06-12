@@ -49,12 +49,8 @@ bool LearningSetReader::initialize(const std::string& learningSetsFolder)
 		}
 	}
 
-	learningSampleIter_ = filesByCategory_.begin();
-	learningSampleCounter_ = 0;
-
-	/// do some shuffle for better learning process
-	random_shuffle(filesByCategory_.begin(), filesByCategory_.end());
-	
+	resetSampleCounter();
+			
 	return !filesByCategory_.empty();
 }
 
@@ -106,4 +102,14 @@ auto_ptr< LearningSample<string> > LearningSetReader::getNextLearningSample(unsi
 		*outProgress = learningSampleCounter_*100/(float)filesByCategory_.size();
 
 	return learningSample;
+}
+
+
+void LearningSetReader::resetSampleCounter() throw()
+{
+	learningSampleIter_ = filesByCategory_.begin();
+	learningSampleCounter_ = 0;
+
+	/// do some shuffle for better learning process
+	random_shuffle(filesByCategory_.begin(), filesByCategory_.end());
 }
